@@ -6,4 +6,13 @@
 !.logcat-color
 !bin/
 !bin/*
+!Library/
+!Library/Preferences
+!Library/Preferences/
+!Library/Preferences/RubyMine50
+!Library/Preferences/RubyMine50/
+!Library/Preferences/RubyMine50/keymaps
+!Library/Preferences/RubyMine50/keymaps/
+!Library/Preferences/RubyMine50/keymaps/mymap.xml
+Library/Preferences/RubyMine50/keymaps/mymap.xm
 .DS_Store
