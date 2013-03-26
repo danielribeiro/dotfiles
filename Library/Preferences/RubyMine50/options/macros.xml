@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application>
+  <component name="ActionMacroManager">
+    <macro name="arrow">
+      <typing text-keycode="45:0;46:1;32:0">-&gt;</typing>
+    </macro>
+    <macro name="parens">
+      <typing text-keycode="57:1">(</typing>
+    </macro>
+    <macro name="fat_arrow">
+      <typing text-keycode="61:0;46:1;32:0">=&gt;</typing>
+    </macro>
+    <macro name="ruby-template">
+      <typing text-keycode="51:1;91:1;93:1">#{}</typing>
+      <action id="EditorLeft" />
+    </macro>
+  </component>
+</application>
+
