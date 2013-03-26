@@ -1,0 +1,71 @@
+#!/bin/bash
+#
+# Git branch navigation utility.
+#
+# Copyright (C) 2012 Daniel Ribeiro <danrbr@gmail.com>
+# Distributed under the MIT License: http://www.opensource.org/licenses/mit-license.php
+#
+# Usage:
+# git-nav l : Lists your navigation history.
+# git-nav [number] : Goes back to your navigation history by number steps.
+# git-nav : Goes back to last branch. Same as git-nav 1.
+#
+# If you already have a post-checkout hook, you need to add the code under create_postcheckout_script
+#to it to make it work (or execute it somehow, if your hook is not a shell script).
+#
+
+
+curbranch=`git rev-parse --abbrev-ref HEAD`
+toplevel=`git rev-parse --show-toplevel`
+navhistory=$toplevel/.git/git-navhistory
+postcheckout=$toplevel/.git/hooks/post-checkout
+
+function create_postcheckout_script() {
+    echo -n '#!/bin/bash
+curbranch=`git rev-parse --abbrev-ref HEAD`
+last_hash=$1
+cur_hash=$2
+was_a_branch_change=$3
+navhistory=`git rev-parse --show-toplevel`/.git/git-navhistory
+
+if [[ $curbranch == "HEAD" ]]
+    then curbranch=$cur_hash
+fi
+
+if [[ $was_a_branch_change == "1" && ($cur_hash != $last_hash) ]]
+    then echo $curbranch >> $navhistory
+fi
+' > $postcheckout
+    chmod +x $postcheckout
+}
+
+function check_postcheckout_script() {
+    if [ ! -f $postcheckout ]
+        then echo "Creating post-checkout hook..."
+        create_postcheckout_script
+    fi
+}
+
+function navigate_back() {
+    local offset=$(($1 + 1)) 
+    last_branch=`tail -n $offset $navhistory | head -n 1`
+    git checkout $last_branch
+}
+
+
+if [ ! -f $navhistory ]
+    then echo $curbranch > $navhistory
+fi
+
+check_postcheckout_script
+if [[ $# -eq 1 ]]
+    then if [[ $1 == 'l' ]]
+        then echo -e "Navigation History: (use 'git nav [number]' to go to that point )\n"
+        # tac or tail -r are not ubiquitous, therefore we use awk
+        sed '$d' $navhistory | awk '{ x = $0 "\n" x } END { printf "%s", x }' | nl -n ln | awk '{ x = $0 "\n" x } END { printf "%s", x }'
+    else
+        navigate_back $1
+    fi
+else 
+    navigate_back 1
+fi

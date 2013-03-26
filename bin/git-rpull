@@ -1,0 +1,12 @@
+#!/bin/bash
+echo Pulling the new version
+git pull
+
+echo Installing new gems
+bundle install
+
+echo Executing db tasks
+bundle exec rake db:migrate db:test:prepare
+
+echo Reseting schema
+git co db/schema.rb

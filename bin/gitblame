@@ -1,0 +1,53 @@
+#!/usr/bin/env ruby
+#!/usr/bin/env ruby
+require 'find'
+class AuthorScore
+  attr_reader :lineCount
+  def initialize
+    @count = Hash.new 0
+    @lineCount = 0
+  end
+
+  def author(line)
+    line.sub(/^[^(]+\((\D+).*/, '\1').strip
+    
+  end
+
+  def count_line(line)
+    @count[author(line)] += 1
+    @lineCount += 1
+  end
+
+  def count_file(file)
+    lines = `git blame #{file}`.split("\n")
+    lines.each {|l| count_line l }
+  end
+
+  def doit(file)
+    count_file file
+    for author, score in total.sort_by {|k, v| -v}
+      puts "#{author}: #{score}"
+    end
+  end
+
+
+  def total
+    @count
+  end
+
+end
+
+def doit
+  return puts "Use: %s filename" % __FILE__ if ARGV.empty?
+  return AuthorScore.new.doit ARGV.first if ARGV.length == 1
+  for file in ARGV
+    puts "#{file}:"
+    AuthorScore.new.doit file
+    puts
+  end
+end
+
+if $PROGRAM_NAME == __FILE__
+  doit
+end
+

@@ -1,0 +1,2 @@
+#!/bin/bash
+source ~/.bashrc && exec ~/bin/files/sage/sage "$@"

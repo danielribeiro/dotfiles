@@ -1,0 +1,3 @@
+#!/bin/bash
+# Remove tudo que estiver em $LIXEIRAPATH
+find $LIXEIRAPATH -mindepth 1 -delete

@@ -1,0 +1,2 @@
+#!/bin/bash
+git pull origin `git branch | grep --colour=never  "*" | sed "s/* //"`

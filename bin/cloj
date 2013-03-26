@@ -1,0 +1,2 @@
+#!/bin/bash
+java -cp .:$HOME/bin/files/clojure/clojure.jar clojure.main "$@"

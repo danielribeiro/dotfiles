@@ -1,0 +1,8 @@
+#!/usr/bin/perl
+$what = $ARGV[0];
+$to = $ARGV[1];
+while (<STDIN>){
+    eval '$_ =~ ' . "s|$what|$to|g";
+    print;
+}
+

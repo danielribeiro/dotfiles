@@ -1,0 +1,5 @@
+#!/bin/bash
+# Interactive bash. Use like shell, but it will source ~/.bashrc. Usefull to call shell commands from Intellij
+function __git_ps1 () { return 0; }
+PS1="\[\033[01;32m\]\u@\h\[\033[01;34m\]$(__git_ps1 " (%s)") \W \$ \[\033[00m\]" source ~/.bash_profile
+exec "$@"

@@ -1,0 +1,7 @@
+#!/bin/bash
+extraarg=`cat ~/.pushstore`
+if [ $# == 0 ]
+    then echo $extraarg
+else
+    eval "$@ $extraarg"
+fi

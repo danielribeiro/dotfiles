@@ -1,0 +1,66 @@
+# -*-shell-script-*-
+# /etc/inputrc:
+# $Header: /home/cvsroot/gentoo-src/rc-scripts/etc/inputrc,v 1.8 2004/02/19 19:29:18 azarah Exp $
+
+# do not bell on tab-completion
+#set bell-style none
+
+set meta-flag on
+set input-meta on
+set convert-meta off
+set output-meta on
+
+# Completed names which are symbolic links to
+# directories have a slash appended.
+set mark-symlinked-directories on
+
+$if mode=emacs
+
+# for linux console and RH/Debian xterm
+"\e[1~": beginning-of-line
+"\e[4~": end-of-line
+#"\e[5~": beginning-of-history
+#"\e[6~": end-of-history
+"\e[5~": history-search-backward
+"\e[6~": history-search-forward
+"\e[3~": delete-char
+"\e[2~": quoted-insert
+"\e[1;5C": forward-word
+"\e[1;5D": backward-word
+"\e[5C": forward-word
+"\e[5D": backward-word
+"\e\e[C": forward-word
+"\e\e[D": backward-word
+#"\C-v": paste-from-clipboard # Insert
+
+# for rxvt
+"\e[8~": end-of-line
+
+# for non RH/Debian xterm, can't hurt for RH/Debian xterm
+"\eOH": beginning-of-line
+"\eOF": end-of-line
+
+# for freebsd console
+"\e[H": beginning-of-line
+"\e[F": end-of-line
+$endif
+
+# fix Home and End for German users
+"\e[7~": beginning-of-line
+"\e[8~": end-of-line
+
+##### MINHAS OP��ES #####
+# Control delete funciona
+"\e[3;5~": kill-word
+
+# Contro + / :Undo
+"\C-/": undo
+
+
+#bell
+set bell-style none
+
+# 3 auto completion no modo case insensitive
+set completion-ignore-case On
+
+

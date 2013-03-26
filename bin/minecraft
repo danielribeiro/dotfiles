@@ -1,0 +1,4 @@
+#!/bin/bash
+jarfile=~/bin/files/minecraft/minecraft.jar
+logfile=~/bin/files/minecraft/output.log
+source ~/.bash_profile && java -Xmx1024M -Xms512M -cp $jarfile net.minecraft.LauncherFrame &> ${logfile}

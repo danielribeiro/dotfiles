@@ -1,0 +1,49 @@
+[user]
+	name = Daniel Ribeiro
+	email = danielrb@pagerduty.com
+[github]
+	user = danielribeiro
+	token = 08f40bf5b3c8e48dde442ec11812ea8e69163041
+[color]
+	ui = true
+
+[mergetool "opendiff"]
+        cmd = opendiff --merge --result=$MERGED $LOCAL $BASE $REMOTE
+        trustExitCode = false
+
+[alias]
+        co = checkout
+        com = checkout master
+        c = commit
+        ren = branch -m
+        b = branch
+        s = status
+        del = branch -D
+        l = log --decorate
+        ll = log -p --decorate
+        ls = log --stat --decorate
+        lg = log --oneline --graph --decorate
+        lmy = log --author='Daniel Ribeiro'
+        touch = commit --allow-empty -m 
+        h = help
+        info = remote show origin
+        which = config --get remote.origin.url
+        undo = reset --soft HEAD^
+        rh = reset --hard
+        ignore = update-index --assume-unchanged
+        unignore = update-index --no-assume-unchanged
+        a = config --get-regexp alias
+        cp = cherry-pick -n
+        d = diff --cached
+        # from http://stackoverflow.com/questions/424071/list-all-the-files-for-a-commit-in-git
+        filesof = diff-tree --no-commit-id --name-only -r
+        
+[core]
+	excludesfile = /Users/daniel/.globalgitignore
+[diff]
+	tool = opendiff
+        
+[difftool "opendiff"]
+	cmd = opendiff $LOCAL $REMOTE
+[rerere]
+	enabled = 1

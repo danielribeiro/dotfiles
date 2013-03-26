@@ -1,0 +1,10 @@
+#!/bin/bash
+if [[ $# -lt 2 ]] 
+	then echo usage: akr [from] [to]
+	exit
+fi
+for f in `ack -al "$1"`
+	do echo changing $f
+	sed -E -i '' s/"$1"/"$2"/g "$f"
+done
+

@@ -1,0 +1,9 @@
+#!/bin/bash
+function pushit() {
+    echo "$@" > ~/.pushstore
+}
+if [ $# -eq 0 ]
+    then pushit "$PWD"
+else
+    pushit "$PWD/$@"
+fi

@@ -1,0 +1,18 @@
+#!/bin/bash
+if [[ $# -eq 0 ]]
+    then git status
+elif [[ $1 == "l" ]]
+    then git status --short |  sed -E  s'/^ *[^ ]+ +//'g | nl -n ln
+elif [[ $1 == "c" ]] # copy
+    then if [[ $# -eq 2 ]] 
+        then git status --short |  sed -E  s'/^ *[^ ]+ +//'g | sed -n "$2"p | pbcopy
+    else
+        git status --short |  sed -E  s'/^ *[^ ]+ +//'g | head -n 1 | pbcopy
+    fi
+elif [[ $1 == "e" ]] # edit
+    then if [[ $# -eq 2 ]] 
+        then mine `git status --short |  sed -E  s'/^ *[^ ]+ +//'g | sed -n "$2"p`
+    else
+        mine `git status --short |  sed -E  s'/^ *[^ ]+ +//'g | head -n 1`
+    fi
+fi

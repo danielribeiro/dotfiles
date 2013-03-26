@@ -1,0 +1,6 @@
+#!/bin/bash
+# take staged changes and make revert them to head
+for i in "$@"
+    do echo Backing out on $i
+    git reset $i; git checkout $i
+done
