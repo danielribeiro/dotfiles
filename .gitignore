@@ -4,6 +4,7 @@
 !.gitconfig
 !.inputrc
 !.logcat-color
+!.globalgitignore
 !bin/
 !bin/*
 !Library/
@@ -25,6 +26,7 @@
 !Library/Application Support/Sublime Text 2/Packages/
 !Library/Application Support/Sublime Text 2/Packages/User
 !Library/Application Support/Sublime Text 2/Packages/User/*
+
 
 Library/Preferences/RubyMine50/keymaps/mymap.xm
 *~
