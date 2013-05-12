@@ -7,6 +7,8 @@
 !.globalgitignore
 !bin/
 !bin/*
+!bin/android
+!bin/android/*
 !Library/
 !Library/Preferences
 !Library/Preferences/

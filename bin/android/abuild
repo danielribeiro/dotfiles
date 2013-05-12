@@ -1,0 +1,9 @@
+#!/bin/bash
+#builds the build.xml
+if [[ $# -eq 0 ]]
+    then echo "Give me a target: android list target (copied to clipboard)"
+    echo android list target | pbcopy
+else
+    android update project --path . --target "$1"
+fi
+
