@@ -1,0 +1,8 @@
+#!/usr/bin/perl
+# removes newline
+$what = "\n";
+$to = $ARGV[0] || " ";
+while (<STDIN>){
+    eval '$_ =~ ' . "s|$what|$to|gi";
+    print;
+}
