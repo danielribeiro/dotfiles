@@ -1,7 +1,7 @@
 [user]
 	name = Daniel Ribeiro
         # change to user env variables when not at home: http://stackoverflow.com/questions/4220416/can-i-specify-multiple-users-for-myself-in-gitconfig
-	email = danrbr@gmail.com
+	email = danielrb@pagerduty.com
 [github]
 	user = danielribeiro
 	token = 08f40bf5b3c8e48dde442ec11812ea8e69163041
@@ -41,6 +41,7 @@
         # from http://stackoverflow.com/questions/424071/list-all-the-files-for-a-commit-in-git
         filesof = diff-tree --no-commit-id --name-only -r
         ldiff = diff --name-status
+
 [core]
 	excludesfile = ~/.globalgitignore
 [diff]
@@ -52,3 +53,5 @@
 	enabled = 1
 [log]
 	decorate = full
+[credential]
+	helper = cache --timeout=2592000
