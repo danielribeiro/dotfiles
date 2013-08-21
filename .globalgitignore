@@ -2,3 +2,4 @@
 .idea/
 .bundle
 *.iml
+.DS_Store
