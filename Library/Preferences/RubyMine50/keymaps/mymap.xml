@@ -28,9 +28,11 @@
   <action id="EditorCodeBlockEnd">
     <keyboard-shortcut first-keystroke="alt DOWN" />
   </action>
+  <action id="EditorCodeBlockEndWithSelection" />
   <action id="EditorCodeBlockStart">
     <keyboard-shortcut first-keystroke="alt UP" />
   </action>
+  <action id="EditorCodeBlockStartWithSelection" />
   <action id="EditorDeleteLine">
     <keyboard-shortcut first-keystroke="meta Y" />
     <keyboard-shortcut first-keystroke="meta D" />
@@ -89,6 +91,7 @@
   <action id="NextTab">
     <keyboard-shortcut first-keystroke="control RIGHT" />
     <keyboard-shortcut first-keystroke="control PAGE_DOWN" />
+    <keyboard-shortcut first-keystroke="shift meta CLOSE_BRACKET" />
   </action>
   <action id="ParameterInfo" />
   <action id="PrevSplitter">
@@ -99,6 +102,7 @@
   <action id="PreviousTab">
     <keyboard-shortcut first-keystroke="control LEFT" />
     <keyboard-shortcut first-keystroke="control PAGE_UP" />
+    <keyboard-shortcut first-keystroke="shift meta OPEN_BRACKET" />
   </action>
   <action id="Refactorings.QuickListPopupAction">
     <keyboard-shortcut first-keystroke="shift meta M" />
