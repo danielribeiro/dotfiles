@@ -170,6 +170,7 @@
   <action id="org.jetbrains.plugins.clojure.actions.editor.SlurpForwardsAction">
     <keyboard-shortcut first-keystroke="shift meta 0" />
     <keyboard-shortcut first-keystroke="control QUOTE" />
+    <keyboard-shortcut first-keystroke="shift meta SEMICOLON" />
   </action>
   <action id="org.jetbrains.plugins.clojure.repl.actions.RunTopSExprAction">
     <keyboard-shortcut first-keystroke="shift meta G" />
