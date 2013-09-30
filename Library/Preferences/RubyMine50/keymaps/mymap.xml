@@ -48,6 +48,9 @@
     <keyboard-shortcut first-keystroke="meta LEFT" />
     <keyboard-shortcut first-keystroke="control A" />
   </action>
+  <action id="EditorMatchBrace">
+    <keyboard-shortcut first-keystroke="control M" />
+  </action>
   <action id="EditorSelectWord" />
   <action id="EditorUnindentSelection">
     <keyboard-shortcut first-keystroke="shift TAB" />
@@ -155,6 +158,9 @@
   </action>
   <action id="UnsplitAll">
     <keyboard-shortcut first-keystroke="control meta NUMPAD5" />
+  </action>
+  <action id="Vcs.ShowMessageHistory">
+    <keyboard-shortcut first-keystroke="meta E" />
   </action>
   <action id="Vcs.ShowTabbedFileHistory">
     <keyboard-shortcut first-keystroke="control meta H" />
