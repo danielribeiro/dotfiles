@@ -1,0 +1,3 @@
+#!/bin/bash
+# Rails migration shortcut
+bundle exec rails generate migration "$@"
