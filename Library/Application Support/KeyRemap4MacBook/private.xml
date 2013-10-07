@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<root>
+  <item>
+    <name>No Command H</name>
+    <appendix>do nothing</appendix>
+    <identifier>private.noh</identifier>
+    <autogen>__KeyToKey__ KeyCode::H, ModifierFlag::COMMAND_L, KeyCode::VK_NONE</autogen>
+  </item>
+
+  <item>
+    <name>No Command M</name>
+    <appendix>do nothing</appendix>
+    <identifier>private.nom</identifier>
+    <autogen>__KeyToKey__ KeyCode::M, ModifierFlag::COMMAND_L, KeyCode::VK_NONE</autogen>
+  </item>
+</root>
