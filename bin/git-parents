@@ -1,0 +1,14 @@
+#!/bin/bash
+target="HEAD"
+if [[ $# -eq 1 ]]
+    then target=$1
+fi
+
+parents=`git --no-pager  log --pretty=%P -n 1 $target`
+echo Showing the `echo $parents | wc -w` parents of $target
+echo
+for p in $parents
+    do PAGER=cat git show --pretty=raw $p
+    echo
+done
+
