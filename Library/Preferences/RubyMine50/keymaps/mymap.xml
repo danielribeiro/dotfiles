@@ -163,7 +163,7 @@
     <keyboard-shortcut first-keystroke="meta E" />
   </action>
   <action id="Vcs.ShowTabbedFileHistory">
-    <keyboard-shortcut first-keystroke="control meta H" />
+    <keyboard-shortcut first-keystroke="shift alt H" />
   </action>
   <action id="Vcs.UpdateProject" />
 </keymap>
