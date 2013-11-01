@@ -1,0 +1,6 @@
+#!/bin/bash
+if [[ $# -eq 0 ]]
+    then echo Usage: $0 [search string]
+else
+    git log -p --decorate -g -S"$*"
+fi
