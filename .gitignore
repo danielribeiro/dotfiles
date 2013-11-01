@@ -12,6 +12,14 @@
 !Library/
 !Library/Preferences
 !Library/Preferences/
+!Library/Preferences/PyCharm30
+!Library/Preferences/PyCharm30/
+!Library/Preferences/PyCharm30/options
+!Library/Preferences/PyCharm30/options/
+!Library/Preferences/PyCharm30/options/macros.xml
+!Library/Preferences/PyCharm30/keymaps
+!Library/Preferences/PyCharm30/keymaps/
+!Library/Preferences/PyCharm30/keymaps/mymap.xml
 !Library/Preferences/RubyMine50
 !Library/Preferences/RubyMine50/
 !Library/Preferences/RubyMine50/options
