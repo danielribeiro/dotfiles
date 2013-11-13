@@ -1,3 +1,0 @@
-#!/bin/bash
-# Limpa arquivos de backup comumente usados.
-find . -iregex '.*[#~]' -delete

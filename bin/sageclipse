@@ -1,2 +1,0 @@
-#!/bin/bash
-source ~/.bashrc && cd ~/bin/files/sage && source local/bin/sage-env && exec ~/bin/files/eclipse/eclipse &
