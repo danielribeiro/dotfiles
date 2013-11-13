@@ -1,4 +1,0 @@
-#!/bin/bash
-# find . \( -path "./.hg" -o -path "./.git" \) -prune -o ! -name "." -print
-# find . -exec grep -Hi "$@" '{}' ';'
-find . \( -path "./.hg" -o -path "./.git" \) -prune -o ! -name "." -exec grep -Hi "$@" '{}' ';'

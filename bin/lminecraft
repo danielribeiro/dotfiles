@@ -1,3 +1,0 @@
-#!/bin/bash
-jarfile=~/bin/files/minecraft/minecraft.jar
-source ~/.bash_profile && java -Xmx1024M -Xms512M -cp $jarfile net.minecraft.LauncherFrame
