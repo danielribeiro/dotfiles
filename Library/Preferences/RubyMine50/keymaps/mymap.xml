@@ -61,6 +61,10 @@
     <keyboard-shortcut first-keystroke="shift meta N" />
     <keyboard-shortcut first-keystroke="meta P" />
   </action>
+  <action id="GotoSymbol">
+    <keyboard-shortcut first-keystroke="shift meta alt N" />
+    <keyboard-shortcut first-keystroke="meta O" />
+  </action>
   <action id="GotoTest">
     <keyboard-shortcut first-keystroke="shift meta R" />
   </action>
@@ -96,6 +100,7 @@
     <keyboard-shortcut first-keystroke="control PAGE_DOWN" />
     <keyboard-shortcut first-keystroke="shift meta CLOSE_BRACKET" />
   </action>
+  <action id="OverrideMethods" />
   <action id="ParameterInfo" />
   <action id="PrevSplitter">
     <keyboard-shortcut first-keystroke="shift control TAB" />
