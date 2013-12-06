@@ -7,10 +7,4 @@
     <autogen>__KeyToKey__ KeyCode::H, ModifierFlag::COMMAND_L, KeyCode::VK_NONE</autogen>
   </item>
 
-  <item>
-    <name>No Command M</name>
-    <appendix>do nothing</appendix>
-    <identifier>private.nom</identifier>
-    <autogen>__KeyToKey__ KeyCode::M, ModifierFlag::COMMAND_L, KeyCode::VK_NONE</autogen>
-  </item>
 </root>

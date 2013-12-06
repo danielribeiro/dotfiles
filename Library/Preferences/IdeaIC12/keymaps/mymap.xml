@@ -172,8 +172,8 @@
     <keyboard-shortcut first-keystroke="control QUOTE" />
     <keyboard-shortcut first-keystroke="shift meta SEMICOLON" />
   </action>
-  <action id="org.jetbrains.plugins.clojure.repl.actions.RunTopSExprAction">
-    <keyboard-shortcut first-keystroke="shift meta G" />
+  <action id="org.jetbrains.plugins.clojure.repl.actions.RunLastSExprAction">
+    <keyboard-shortcut first-keystroke="shift meta H" />
     <keyboard-shortcut first-keystroke="shift meta K" />
   </action>
 </keymap>
