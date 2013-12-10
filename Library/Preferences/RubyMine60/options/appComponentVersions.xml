@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<versions>
+  <component name="AbbreviationManager" version="1386661832000" />
+  <component name="ActionMacroManager" version="1386661832001" />
+  <component name="CodeInsightSettings" version="1386661832002" />
+  <component name="CodeStyleSchemeSettings" version="1386661832004" />
+  <component name="DaemonCodeAnalyzerSettings" version="1386661832004" />
+  <component name="DimensionService" version="1386661832005" />
+  <component name="EditorColorsManagerImpl" version="1386661832005" />
+  <component name="EditorSettings" version="1386661832006" />
+  <component name="Encoding" version="1386661832006" />
+  <component name="ExportableFileTemplateSettings" version="1386661832006" />
+  <component name="FeatureUsageStatistics" version="1386661832009" />
+  <component name="FileBasedIndex" version="1386661832009" />
+  <component name="FileTypeManager" version="1386661832032" />
+  <component name="GemManagerSettings" version="1386661832180" />
+  <component name="GeneralSettings" version="1386661832180" />
+  <component name="HttpConfigurable" version="1386661832182" />
+  <component name="KeymapManager" version="1386661832182" />
+  <component name="LafManager" version="1386661832182" />
+  <component name="NotificationConfiguration" version="1386661832183" />
+  <component name="ProjectManager" version="1386661832189" />
+  <component name="PropertiesComponent" version="1386661832189" />
+  <component name="RecentDirectoryProjectsManager" version="1386661832190" />
+  <component name="Registry" version="1386661832190" />
+  <component name="StatisticsApplicationUsages" version="1386661832191" />
+  <component name="TodoConfiguration" version="1386661832192" />
+  <component name="UISettings" version="1386661832193" />
+  <component name="UpdatesConfigurable" version="1386661832193" />
+  <component name="UsagesStatistic" version="1386661832215" />
+  <component name="WebBrowsersConfiguration" version="1386661832216" />
+  <component name="WebServers" version="1386661832216" />
+  <component name="WindowManager" version="1386661832217" />
+  <component name="XDebuggerSettings" version="1386661832219" />
+  <component name="com.intellij.ide.fileTemplates.impl.FileTemplateManagerImpl" version="1386661832221" />
+  <component name="com.intellij.javaee.ExternalResourceManagerImpl" version="1386661832222" />
+</versions>
+
