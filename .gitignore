@@ -24,7 +24,11 @@
 !Library/Preferences/RubyMine60/
 !Library/Preferences/RubyMine60/options
 !Library/Preferences/RubyMine60/options/
-!Library/Preferences/RubyMine60/options/*
+!Library/Preferences/RubyMine60/options/keymap.xml
+!Library/Preferences/RubyMine60/options/colors.scheme.xml
+!Library/Preferences/RubyMine60/colors
+!Library/Preferences/RubyMine60/colors/
+!Library/Preferences/RubyMine60/colors/*
 !Library/Preferences/RubyMine60/templates/
 !Library/Preferences/RubyMine60/templates/*
 !Library/Preferences/RubyMine60/options/macros.xml
