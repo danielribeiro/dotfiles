@@ -5,6 +5,7 @@
 !.inputrc
 !.logcat-color
 !.globalgitignore
+!.bash_profile.template
 !bin/
 !bin/*
 !bin/android
