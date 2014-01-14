@@ -5,6 +5,7 @@
 !.inputrc
 !.logcat-color
 !.globalgitignore
+!.git-completion.sh
 !.bash_profile.template
 !bin/
 !bin/*
