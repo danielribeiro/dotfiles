@@ -35,6 +35,7 @@
         a = config --get-regexp alias
         cp = cherry-pick -n
         d = diff --cached
+        untrack = rm --cached
         # from http://stackoverflow.com/questions/424071/list-all-the-files-for-a-commit-in-git
         filesof = diff-tree --no-commit-id --name-only -r
         ldiff = diff --name-status
