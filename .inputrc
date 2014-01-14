@@ -49,8 +49,8 @@ $endif
 "\e[7~": beginning-of-line
 "\e[8~": end-of-line
 
-##### MINHAS OP��ES #####
-# Control delete funciona
+##### Personal #####
+# Control delete works
 "\e[3;5~": kill-word
 
 # Contro + / :Undo
@@ -60,7 +60,7 @@ $endif
 #bell
 set bell-style none
 
-# 3 auto completion no modo case insensitive
+# auto completion on case insensitive mode
 set completion-ignore-case On
 
 
