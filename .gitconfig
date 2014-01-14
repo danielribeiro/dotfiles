@@ -53,3 +53,5 @@
 	decorate = full
 [credential]
 	helper = cache --timeout=2592000
+[push]
+	default = simple
