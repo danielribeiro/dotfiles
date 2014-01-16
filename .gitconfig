@@ -18,6 +18,7 @@
         b = branch
         s = status
         del = branch -D
+        rdel = push origin --delete
         l = log --decorate
         ll = log -p --decorate
         ls = log --stat --decorate
