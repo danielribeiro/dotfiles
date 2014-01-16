@@ -115,7 +115,7 @@
       <option name="OTHER" value="false" />
     </context>
   </template>
-  <template name="bl" value="function () {&#10;    $END$&#10;};" description="function block" toReformat="true" toShortenFQNames="true">
+  <template name="bl" value="function () {&#10;    $END$&#10;}" description="function block" toReformat="true" toShortenFQNames="true">
     <context>
       <option name="HTML_TEXT" value="false" />
       <option name="HTML" value="false" />
