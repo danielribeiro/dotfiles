@@ -57,6 +57,9 @@
     <keyboard-shortcut first-keystroke="meta OPEN_BRACKET" />
   </action>
   <action id="FileChooser.TogglePathShowing" />
+  <action id="Git.ResolveConflicts">
+    <keyboard-shortcut first-keystroke="shift meta 0" />
+  </action>
   <action id="GotoFile">
     <keyboard-shortcut first-keystroke="shift meta N" />
     <keyboard-shortcut first-keystroke="meta P" />
