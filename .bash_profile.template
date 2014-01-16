@@ -73,30 +73,20 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-# some more ls aliases
-alias g="git"
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
 
 #################
-# PESSOAL
+# Personal
 #################
 
-###### Opcoes gerais de shell ######
-# 1 cores: LEGADO
+###### Legacy shell ######
+# 1 colors
 if [ -a ~/.DIR_COLORS ]; then eval `dircolors -b ~/.DIR_COLORS`; fi
 
 
-# 2 Em Portugues
-#export LANG="pt_BR"
-#export LC_ALL="pt_BR"
-
-# 3 historico: modo append
-shopt -s histappend
+# 2 append history
 PROMPT_COMMAND='history -a'
 
-###### PATHS E VARIAVEIS DE AMBIENTE ######
+###### PATHS E Evironment Variables ######
 export BIN_HOME="$HOME/bin/files"
 export RUBY_BIN_HOME="$HOME/bin/ruby"
 
@@ -111,7 +101,7 @@ export INPUTRC=~/.inputrc
 export CDPATH=.:..:~
 export LIXEIRAPATH=~/.Lixeira
 export DOWNLOADPATH=~/downloads
-# Shells antigos:
+# Older shells:
 # export GREP_COLOR='01;36'
 export GREP_COLORS='mt=01;36:ms=01;36:mc=01;36:fn=01;35:ln=01;32:bn=01;32:se=01;36'
 export GREP_OPTIONS=--color=always
@@ -122,15 +112,9 @@ export EC2_HOME="$BIN_HOME/ec2-api-tools"
 # export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$SAGE_ROOT/local/lib
 export PATH=.:$M2:~/bin:$RUBY_BIN_HOME:$PATH:$CLOJURESCRIPT_HOME/bin:$EC2_HOME/bin
 
-#### EC2
-export EC2_PRIVATE_KEY=~/amazon/pk-PQAQCSG4PQAMONOTNJAFOEDIRNCKUSNY.pem
-export EC2_CERT=~/amazon/cert-PQAQCSG4PQAMONOTNJAFOEDIRNCKUSNY.pem
-
-
-# less com suporte a cores e arquivos binários
+# Collor support and binary files for less
 export LESS=-MisRf
 
-# IMPORTANTE DEFINIR ESTAS ANTES, para que os aliases para elas funcionem
 
 ###### Shell Functions ######
 function grepa () { egrep -in "$@" *; }
@@ -143,32 +127,17 @@ function lsgrep () { ls -1l | egrep -i "$@" ; }
 function sgrep () { egrep --colour=never "$@" ; }
 
 
-# cria um arquivo .bak na pasta atual
+# backups the current file
 function bak () {
     cp $1 $1.bak
 }
 
-# Restaura o arquivo do .bak respectivo
+# restores the backup file
 function ubak () {
     cp $1.bak $1
 }
 
-# Move todas os arquivos normais da pasta corrente para uma pasta que ï¿½ passada como
-#argumento
-function movef () {
-    for i in *
-      do if [ -f $i ]
-          then mv $i $1
-      fi
-    done
-}
-
-# Chama o ediff do emacs
-function ediff () {
-    emacs-snapshot-gtk --eval "(ediff-files \"$1\" \"$2\")" &
-}
-
-# Traz os argmentos da pasta de downloads para o diretï¿½rio corrente:
+# Bring from download path
 function dvem () {
     mv "$@" .
 }
@@ -179,19 +148,19 @@ function auxDvem () {
 
 complete -o filenames -F auxDvem dvem
 
-#busca: find no diretorigo atual, mas busca padrao dentro do nome
+# busca: find on current directory, but using a pattern
 function busca () { find . -iname "$@" ; }
 
 function buscag () { find . -iname '*'"$@"'*' ; }
 
 function oldcd () { cd "$@" ; }
 
-#cd silencioso: necessario por causa CDPATH nao nulo
+# silent cd: necessary due to non empty CDPATH
 function silentcd () { oldcd "$@" >/dev/null ; }
 
 
 
-#destar: remove tudo aquilo que estava no arquivo 'tar' passado como argumento
+# destar: removes everything on the given 'tar'
 function destar () {
     for i in `tar tf "$@"`
       do if [[ -d $i ]]
@@ -203,7 +172,7 @@ then /bin/rm $i
     done
 }
 
-#destarz: remove tudo aquilo que estava no arquivo 'tar.gz' passado como argumento
+# destarz: removes everything on the given 'tar.gz'
 function destarz () {
     for i in `tar tzf "$@"`
       do if [[ -d $i ]]
@@ -215,19 +184,8 @@ then /bin/rm $i
     done
 }
 
-function lsfonte() {
-    ls -l `which "$@"`
-}
-
-function fonte() {
-    cat `which "$@"`
-}
-
-function efonte() {
-    emacs `which "$@"`
-}
-
 ###### General aliases ######
+alias g="git"
 alias em="/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl"
 alias disku='baobab'
 alias ofice='ooffice'
@@ -257,11 +215,25 @@ alias akk='ack -i'
 alias serve="python -m SimpleHTTPServer"
 alias gself="cd; export GIT_DIR=tmp/dotfiles/.git"
 
-#Solving bad bundler
+# Solving bad bundler
 alias brake="bundle exec rake"
 alias be="bundle exec"
 
-###### SSHsismos ######
+alias gself="cd; export GIT_DIR=tmp/dotfiles/.git"
+
+function lsfonte() {
+    ls -l `which "$@"`
+}
+
+function fonte() {
+    cat `which "$@"`
+}
+
+function efonte() {
+    emacs `which "$@"`
+}
+
+###### SSHsisms ######
 if [[ -z $SSH_CONNECTION ]];
     then PS1='\[\033[01;32m\]\u@\h\[\033[01;34m\]$(__git_ps1 " (%s)") \W \$ \[\033[00m\]'
     #then PS1='\[\033[01;32m\]\u@\h\[\033[01;34m\] \W \$ \[\033[00m\]'
@@ -302,7 +274,7 @@ alias lsize="du -hs $LIXEIRAPATH"
 alias rrm="/bin/rm"
 alias rm='removetrash'
 
-# Inicia a Trashcan se ela nao existir:
+# Initialize Trashcan if it is not there
 if [[ ! -d $LIXEIRAPATH ]]; then mkdir $LIXEIRAPATH; fi
 
 
