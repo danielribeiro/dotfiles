@@ -1,2 +1,2 @@
 #!/bin/bash
-ack "$@" `git rev-parse --show-toplevel` --ignore-dir=log --ignore-dir=tmp --ignore-dir=.jhw-cache --ignore-dir=.idea --ignore-dir=build --ignore-dir=bin
+ack "$@" `git rev-parse --show-toplevel` --ignore-dir=log --ignore-dir=tmp --ignore-dir=.jhw-cache --ignore-dir=.idea --ignore-dir=build --ignore-dir=bin --ignore-dir=node_modules --ignore-dir=ruby_gems
