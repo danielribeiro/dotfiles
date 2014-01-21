@@ -3,6 +3,7 @@
 	"installed_packages":
 	[
 		"All Autocomplete",
+		"Better CoffeeScript",
 		"FileDiffs",
 		"LastEdit",
 		"Package Control",
