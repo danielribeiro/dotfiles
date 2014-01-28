@@ -214,7 +214,7 @@ alias ak='ack -a -i'
 alias akk='ack -i'
 alias serve="python -m SimpleHTTPServer"
 alias gself="cd; export GIT_DIR=tmp/dotfiles/.git"
-alias gcd="cd `git rev-parse --show-toplevel`"
+alias gcd='cd `git rev-parse --show-toplevel`'
 
 # Solving bad bundler
 alias brake="bundle exec rake"
