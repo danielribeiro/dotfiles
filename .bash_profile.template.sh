@@ -204,7 +204,7 @@ alias .="cd .."
 alias c-="cd -"
 alias aliased="em ~/.bash_profile"
 alias gited="em ~/.gitconfig"
-alias op="gnome-open"
+alias op="open"
 alias limpatex='limpa && rm -f *.{out,log,aux,dvi}'
 alias untar="tar xvf"
 alias untarz="tar xvfz"
@@ -214,12 +214,11 @@ alias ak='ack -a -i'
 alias akk='ack -i'
 alias serve="python -m SimpleHTTPServer"
 alias gself="cd; export GIT_DIR=tmp/dotfiles/.git"
+alias gcd='cd `git rev-parse --show-toplevel`'
 
 # Solving bad bundler
 alias brake="bundle exec rake"
 alias be="bundle exec"
-
-alias gself="cd; export GIT_DIR=tmp/dotfiles/.git"
 
 function lsfonte() {
     ls -l `which "$@"`
