@@ -3,9 +3,19 @@
     :editor {"alt-w" [:editor.watch.watch-selection]
              "pmeta-/" [:toggle-comment-selection]
              "alt-shift-w" [:editor.watch.unwatch]
-             "pmeta-i" [:clear-console]
+;;              "pmeta-i" [:clear-console]
+             "pmeta-i" [(:eval.custom
+                  "(do
+              (require 'kibit.check)
+              (if-let [better (kibit.check/check-expr '__SELECTION__)]
+              (with-out-str
+              (clojure.pprint/write (:alt better)
+              :suppress-namespaces true
+              :dispatch clojure.pprint/code-dispatch))
+              __SELECTION*__))"
+            {:result-type :replace :verbatim true})]
 
-              }
+             }
     :editor.keys.normal {
       "pmeta-l" [(:editor.open-pair "(")]
      }
