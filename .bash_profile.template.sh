@@ -210,8 +210,7 @@ alias untar="tar xvf"
 alias untarz="tar xvfz"
 alias c="pbcopy"
 
-alias ak='ack -a -i'
-alias akk='ack -i'
+alias ak='ack -i'
 alias serve="python -m SimpleHTTPServer"
 alias gself="cd; export GIT_DIR=tmp/dotfiles/.git"
 alias gcd='cd `git rev-parse --show-toplevel`'
