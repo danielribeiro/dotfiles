@@ -1,5 +1,9 @@
-.rbenv-version
-.idea/
-.bundle
 *.iml
 .DS_Store
+.bundle
+.idea
+.idea/
+.rbenv-version
+.rbx
+node_modules
+tags
