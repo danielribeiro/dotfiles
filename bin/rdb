@@ -1,3 +1,0 @@
-#!/bin/bash
-bundle exec rake db:migrate db:test:prepare
-git co db/schema.rb
