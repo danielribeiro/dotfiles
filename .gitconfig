@@ -5,6 +5,13 @@
 [color]
 	ui = true
 
+[push]
+        config = default
+        default = current
+
+[rebase]
+        autosquash = true
+
 [mergetool "opendiff"]
         cmd = opendiff --merge --result=$MERGED $LOCAL $BASE $REMOTE
         trustExitCode = false

@@ -8,17 +8,17 @@
       <option name="XML" value="false" />
       <option name="RUBY" value="false" />
       <option name="RHTML" value="false" />
+      <option name="SQL" value="false" />
       <option name="CSS_PROPERTY_VALUE" value="false" />
       <option name="CSS_DECLARATION_BLOCK" value="false" />
       <option name="CSS_RULESET_LIST" value="false" />
       <option name="CSS" value="false" />
       <option name="JAVA_SCRIPT" value="false" />
       <option name="TypeScript" value="false" />
-      <option name="SQL" value="false" />
-      <option name="CUCUMBER_FEATURE_FILE" value="false" />
-      <option name="CoffeeScript" value="false" />
       <option name="HAML" value="false" />
       <option name="Slim" value="false" />
+      <option name="CoffeeScript" value="false" />
+      <option name="CUCUMBER_FEATURE_FILE" value="false" />
       <option name="OTHER" value="true" />
     </context>
   </template>
@@ -30,17 +30,17 @@
       <option name="XML" value="true" />
       <option name="RUBY" value="true" />
       <option name="RHTML" value="true" />
+      <option name="SQL" value="true" />
       <option name="CSS_PROPERTY_VALUE" value="true" />
       <option name="CSS_DECLARATION_BLOCK" value="true" />
       <option name="CSS_RULESET_LIST" value="true" />
       <option name="CSS" value="true" />
       <option name="JAVA_SCRIPT" value="true" />
       <option name="TypeScript" value="false" />
-      <option name="SQL" value="true" />
-      <option name="CUCUMBER_FEATURE_FILE" value="true" />
-      <option name="CoffeeScript" value="false" />
       <option name="HAML" value="true" />
       <option name="Slim" value="true" />
+      <option name="CoffeeScript" value="false" />
+      <option name="CUCUMBER_FEATURE_FILE" value="true" />
       <option name="OTHER" value="true" />
     </context>
   </template>
