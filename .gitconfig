@@ -40,7 +40,7 @@
         rh = reset --hard
         ignore = update-index --assume-unchanged
         unignore = update-index --no-assume-unchanged
-        a = config --get-regexp alias
+        a = !sh -c 'git config --get-regexp alias | sort'
         cp = cherry-pick -n
         d = diff --cached
         untrack = rm --cached
