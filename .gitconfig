@@ -49,6 +49,7 @@
         ldiff = diff --name-status
         put = stash
         pop = stash apply
+        whotf = shortlog -s -n
 
 [core]
 	excludesfile = ~/.globalgitignore
