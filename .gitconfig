@@ -50,6 +50,7 @@
         put = stash
         pop = stash apply
         whotf = shortlog -s -n
+        realblame = blame -M -C -C -w
 
 [core]
 	excludesfile = ~/.globalgitignore
