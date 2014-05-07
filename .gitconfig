@@ -5,6 +5,13 @@
 [color]
 	ui = true
 
+[push]
+        config = default
+        default = current
+
+[rebase]
+        autosquash = true
+
 [mergetool "opendiff"]
         cmd = opendiff --merge --result=$MERGED $LOCAL $BASE $REMOTE
         trustExitCode = false
@@ -33,15 +40,17 @@
         rh = reset --hard
         ignore = update-index --assume-unchanged
         unignore = update-index --no-assume-unchanged
-        a = config --get-regexp alias
+        a = !sh -c 'git config --get-regexp alias | sort'
         cp = cherry-pick -n
         d = diff --cached
         untrack = rm --cached
         # from http://stackoverflow.com/questions/424071/list-all-the-files-for-a-commit-in-git
         filesof = diff-tree --no-commit-id --name-only -r
-        ldiff = diff --name-status
+        ldiff = !git --no-pager diff --stat --color
         put = stash
         pop = stash apply
+        whotf = shortlog -s -n
+        realblame = blame -M -C -C -w
 
 [core]
 	excludesfile = ~/.globalgitignore
