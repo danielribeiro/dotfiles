@@ -88,11 +88,13 @@ PROMPT_COMMAND='history -a'
 
 ###### PATHS E Evironment Variables ######
 export BIN_HOME="$HOME/bin/files"
+export ANDROID_HOME="$BIN_HOME/android-sdk"
 export RUBY_BIN_HOME="$HOME/bin/ruby"
+export ANDROID_BIN_HOME="$HOME/bin/android"
 
 export CLOJURESCRIPT_HOME="$BIN_HOME/clojurescript"
 export JAVA_HOME=`/usr/libexec/java_home`
-export CLASSPATH="/home/daniel/bin/files/clojure.jar"
+export CLASSPATH="$BIN_HOME/clojure.jar"
 #export JDK_HOME=$JAVA_HOME
 #export JAVAC="$JAVA_HOME/bin/javac"
 export M2_HOME="$BIN_HOME/apache-maven"
@@ -110,7 +112,7 @@ export PYTHONSTARTUP=~/.pythonrc
 export EC2_HOME="$BIN_HOME/ec2-api-tools"
 # export SAGE_ROOT=/home/daniel/bin/files/sage
 # export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$SAGE_ROOT/local/lib
-export PATH=.:$M2:~/bin:$RUBY_BIN_HOME:$PATH:$CLOJURESCRIPT_HOME/bin:$EC2_HOME/bin
+export PATH=.:$M2:~/bin:$RUBY_BIN_HOME:ANDROID_BIN_HOME:$ANDROID_HOME/tools:$PATH:$CLOJURESCRIPT_HOME/bin:$EC2_HOME/bin
 
 # Collor support and binary files for less
 export LESS=-MisRf
