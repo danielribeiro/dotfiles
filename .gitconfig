@@ -51,6 +51,7 @@
         pop = stash apply
         whotf = shortlog -s -n
         realblame = blame -M -C -C -w
+        tip = rev-parse HEAD
 
 [core]
 	excludesfile = ~/.globalgitignore
