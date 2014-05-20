@@ -230,7 +230,7 @@ function fonte() {
 }
 
 function efonte() {
-    emacs `which "$@"`
+    em `which "$@"`
 }
 
 ###### SSHsisms ######
