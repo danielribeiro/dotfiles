@@ -51,6 +51,10 @@
   <action id="EditorMatchBrace">
     <keyboard-shortcut first-keystroke="control M" />
   </action>
+  <action id="EditorPasteSimple">
+    <keyboard-shortcut first-keystroke="shift meta alt V" />
+    <keyboard-shortcut first-keystroke="shift meta B" />
+  </action>
   <action id="EditorSelectWord" />
   <action id="EditorUnindentSelection">
     <keyboard-shortcut first-keystroke="shift TAB" />
