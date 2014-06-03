@@ -69,5 +69,10 @@
       <option name="OTHER" value="false" />
     </context>
   </template>
+  <template name="jl" value="include JLogger $END$" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="RUBY" value="true" />
+    </context>
+  </template>
 </templateSet>
 
