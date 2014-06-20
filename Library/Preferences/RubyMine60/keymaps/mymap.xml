@@ -101,6 +101,7 @@
   <action id="NextSplitter">
     <keyboard-shortcut first-keystroke="control TAB" />
     <keyboard-shortcut first-keystroke="alt PAGE_UP" />
+    <keyboard-shortcut first-keystroke="control alt DOWN" />
   </action>
   <action id="NextTab">
     <keyboard-shortcut first-keystroke="control RIGHT" />
@@ -141,9 +142,11 @@
   <action id="ShowProjectStructureSettings" />
   <action id="SplitHorizontally">
     <keyboard-shortcut first-keystroke="control meta NUMPAD1" />
+    <keyboard-shortcut first-keystroke="control alt RIGHT" />
   </action>
   <action id="SplitVertically">
     <keyboard-shortcut first-keystroke="control meta NUMPAD2" />
+    <keyboard-shortcut first-keystroke="control alt LEFT" />
   </action>
   <action id="StructuralSearchPlugin.StructuralReplaceAction" />
   <action id="SwitchApply">
@@ -167,6 +170,7 @@
   </action>
   <action id="Unsplit">
     <keyboard-shortcut first-keystroke="control meta NUMPAD4" />
+    <keyboard-shortcut first-keystroke="control alt UP" />
   </action>
   <action id="UnsplitAll">
     <keyboard-shortcut first-keystroke="control meta NUMPAD5" />
