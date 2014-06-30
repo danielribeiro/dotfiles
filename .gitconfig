@@ -52,6 +52,8 @@
         whotf = shortlog -s -n
         realblame = blame -M -C -C -w
         tip = rev-parse HEAD
+        reba = rebase --abort
+        rebc = rebase --continue
 
 [core]
 	excludesfile = ~/.globalgitignore
