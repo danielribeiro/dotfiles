@@ -61,9 +61,6 @@
     <keyboard-shortcut first-keystroke="meta OPEN_BRACKET" />
   </action>
   <action id="FileChooser.TogglePathShowing" />
-  <action id="Git.ResolveConflicts">
-    <keyboard-shortcut first-keystroke="shift meta 0" />
-  </action>
   <action id="GotoFile">
     <keyboard-shortcut first-keystroke="shift meta N" />
     <keyboard-shortcut first-keystroke="meta P" />
@@ -147,6 +144,18 @@
   <action id="SplitVertically">
     <keyboard-shortcut first-keystroke="control meta NUMPAD2" />
     <keyboard-shortcut first-keystroke="control alt LEFT" />
+  </action>
+  <action id="StepInto">
+    <keyboard-shortcut first-keystroke="F7" />
+    <keyboard-shortcut first-keystroke="shift meta 9" />
+  </action>
+  <action id="StepOut">
+    <keyboard-shortcut first-keystroke="shift F8" />
+    <keyboard-shortcut first-keystroke="shift meta 0" />
+  </action>
+  <action id="StepOver">
+    <keyboard-shortcut first-keystroke="F8" />
+    <keyboard-shortcut first-keystroke="shift meta 8" />
   </action>
   <action id="StructuralSearchPlugin.StructuralReplaceAction" />
   <action id="SwitchApply">
