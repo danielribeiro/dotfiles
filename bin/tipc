@@ -1,0 +1,5 @@
+#!/bin/bash
+set -e
+hash=`git rev-parse HEAD`
+echo Sha of git HEAD to clibpoard: $hash 
+echo $hash | pbcopy
