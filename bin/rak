@@ -1,2 +1,2 @@
 #!/bin/bash
-ack --ruby "$@" --ignore-dir=log --ignore-dir=tmp --ignore-dir=.jhw-cache --ignore-dir=.idea --ignore-dir=build --ignore-dir=bin --ignore-dir=node_modules --ignore-dir=ruby_gems --ignore-dir=lib
+ack --ruby "$@" --ignore-dir=log --ignore-dir=tmp --ignore-dir=.jhw-cache --ignore-dir=.idea --ignore-dir=build --ignore-dir=bin --ignore-dir=node_modules --ignore-dir=ruby_gems

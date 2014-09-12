@@ -2,9 +2,7 @@ require 'irb/completion'
 IRB.conf[:AUTO_INDENT]=true
 puts "Configure IRB: conf file at ~/.irbrc"
 require 'rubygems'
-require 'wirble'
-Wirble.init
-Wirble.colorize
+
 
 module Kernel
     def rwirb
@@ -17,5 +15,17 @@ module Kernel
         Readline::HISTORY.each { |x| puts x }
         nil
     end
+
+    def p_each(obj)
+        obj.instance_variables.each do |v|
+            puts "#{v}: #{obj.instance_variable_get(v).inspect}\n\n"
+        end
+        nil
+    end    
 end
+
+require 'awesome_print'
+require 'wirble'
+Wirble.init
+Wirble.colorize
 
