@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# to use with ssh: (while [[ 1 ]]; do cat /Users/danielrb/tmp/sshpipe ; done) | ssh $host -t -t
+cat $1 >> /Users/danielrb/tmp/sshpipe
+echo >> /Users/danielrb/tmp/sshpipe

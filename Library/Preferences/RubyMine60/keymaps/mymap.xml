@@ -184,6 +184,9 @@
     <keyboard-shortcut first-keystroke="meta F11" />
     <keyboard-shortcut first-keystroke="control meta NUMPAD7" />
   </action>
+  <action id="Tool_shell_~/bin/toshell">
+    <keyboard-shortcut first-keystroke="shift meta P" />
+  </action>
   <action id="Unsplit">
     <keyboard-shortcut first-keystroke="control meta NUMPAD4" />
     <keyboard-shortcut first-keystroke="control alt UP" />
