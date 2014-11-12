@@ -21,7 +21,7 @@ module Kernel
             puts "#{v}: #{obj.instance_variable_get(v).inspect}\n\n"
         end
         nil
-    end    
+    end
 end
 
 require 'awesome_print'
@@ -29,3 +29,9 @@ require 'wirble'
 Wirble.init
 Wirble.colorize
 
+# Square stuff
+module Kernel
+    def _w
+        require './config/environment'
+    end
+end
