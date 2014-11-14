@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templateSet group="TextMate RSpec">
+  <template name="bef" value="before($VARIABLE_1$) do&#10;  $END$&#10;end" description="before" toReformat="true" toShortenFQNames="true">
+    <variable name="VARIABLE_1" expression="" defaultValue=":each" alwaysStopAt="true" />
+    <context />
+  </template>
+</templateSet>
+
