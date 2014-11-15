@@ -39,6 +39,21 @@
 !Library/Preferences/RubyMine60/keymaps
 !Library/Preferences/RubyMine60/keymaps/
 !Library/Preferences/RubyMine60/keymaps/mymap.xml
+!Library/Preferences/RubyMine70
+!Library/Preferences/RubyMine70/
+!Library/Preferences/RubyMine70/options
+!Library/Preferences/RubyMine70/options/
+!Library/Preferences/RubyMine70/options/keymap.xml
+!Library/Preferences/RubyMine70/options/colors.scheme.xml
+!Library/Preferences/RubyMine70/colors
+!Library/Preferences/RubyMine70/colors/
+!Library/Preferences/RubyMine70/colors/*
+!Library/Preferences/RubyMine70/templates/
+!Library/Preferences/RubyMine70/templates/*
+!Library/Preferences/RubyMine70/options/macros.xml
+!Library/Preferences/RubyMine70/keymaps
+!Library/Preferences/RubyMine70/keymaps/
+!Library/Preferences/RubyMine70/keymaps/mymap.xml
 !Library/Preferences/IntelliJIdea13
 !Library/Preferences/IntelliJIdea13/
 !Library/Preferences/IntelliJIdea13/options
@@ -47,6 +62,14 @@
 !Library/Preferences/IntelliJIdea13/keymaps
 !Library/Preferences/IntelliJIdea13/keymaps/
 !Library/Preferences/IntelliJIdea13/keymaps/mymap.xml
+!Library/Preferences/IntelliJIdea14
+!Library/Preferences/IntelliJIdea14/
+!Library/Preferences/IntelliJIdea14/options
+!Library/Preferences/IntelliJIdea14/options/
+!Library/Preferences/IntelliJIdea14/options/macros.xml
+!Library/Preferences/IntelliJIdea14/keymaps
+!Library/Preferences/IntelliJIdea14/keymaps/
+!Library/Preferences/IntelliJIdea14/keymaps/mymap.xml
 !Library/Application Support
 !Library/Application Support/
 !Library/Application Support/LightTable
