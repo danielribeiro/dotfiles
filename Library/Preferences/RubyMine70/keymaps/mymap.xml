@@ -21,6 +21,8 @@
   <action id="Console.Jdbc.Close">
     <keyboard-shortcut first-keystroke="shift meta F4" />
   </action>
+  <action id="Console.TableResult.NextPage" />
+  <action id="Console.TableResult.PreviousPage" />
   <action id="DatabaseView.CopyAction" />
   <action id="DatabaseView.ShowDiff" />
   <action id="Diff.UpdatedFiles" />
@@ -97,6 +99,7 @@
   <action id="Macro.should ==">
     <keyboard-shortcut first-keystroke="meta PERIOD" />
   </action>
+  <action id="NextOccurence" />
   <action id="NextSplitter">
     <keyboard-shortcut first-keystroke="control TAB" />
     <keyboard-shortcut first-keystroke="alt PAGE_UP" />
@@ -113,6 +116,7 @@
     <keyboard-shortcut first-keystroke="shift control TAB" />
     <keyboard-shortcut first-keystroke="alt PAGE_DOWN" />
   </action>
+  <action id="PreviousOccurence" />
   <action id="PreviousProjectWindow" />
   <action id="PreviousTab">
     <keyboard-shortcut first-keystroke="control LEFT" />
@@ -200,4 +204,12 @@
     <keyboard-shortcut first-keystroke="shift alt H" />
   </action>
   <action id="Vcs.UpdateProject" />
+  <action id="VcsShowNextChangeMarker">
+    <keyboard-shortcut first-keystroke="shift control alt DOWN" />
+    <keyboard-shortcut first-keystroke="meta alt DOWN" />
+  </action>
+  <action id="VcsShowPrevChangeMarker">
+    <keyboard-shortcut first-keystroke="shift control alt UP" />
+    <keyboard-shortcut first-keystroke="meta alt UP" />
+  </action>
 </keymap>
