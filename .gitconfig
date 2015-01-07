@@ -1,7 +1,7 @@
 [user]
 	name = Daniel Ribeiro
         # change to user env variables when not at home: http://stackoverflow.com/questions/4220416/can-i-specify-multiple-users-for-myself-in-gitconfig
-	email = danrbr@gmail.com
+	email = danielrb@squareup.com
 [color]
 	ui = true
 
