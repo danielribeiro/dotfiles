@@ -1,0 +1,15 @@
+- sublime
+- rubymine
+- firefox
+- chrome
+- flash player
+- vlc
+- clementine
+
+- dropbox
+- simbl
+- fuse 2
+
+
+init:
+sudo scutil –-set HostName fnord
