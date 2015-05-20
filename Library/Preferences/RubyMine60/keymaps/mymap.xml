@@ -120,6 +120,7 @@
   <action id="Macro.should ==">
     <keyboard-shortcut first-keystroke="meta PERIOD" />
   </action>
+  <action id="MinimizeCurrentWindow" />
   <action id="MoveStatementDown" />
   <action id="MoveStatementUp" />
   <action id="NextSplitter">
