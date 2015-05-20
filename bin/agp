@@ -1,0 +1,3 @@
+#!/bin/bash
+# Ag for protocol buffers
+ag "$@" -G '.*\.proto$'
