@@ -31,6 +31,8 @@
         ls = log --stat --decorate
         lg = log --oneline --graph --decorate
         lmy = log --author='Daniel Ribeiro'
+        llmy = log -p --decorate --author='Daniel Ribeiro'
+        lsmy = log --stat --decorate --author='Daniel Ribeiro'
         la = log --pretty=format:"%C(yellow)%h%C(reset)%x09%an%x09%ad%x09%s" # short log with timestamps
         touch = commit --allow-empty -m 
         h = help
