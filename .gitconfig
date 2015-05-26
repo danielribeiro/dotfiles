@@ -74,5 +74,3 @@
 [url "git@git.squareup.com"]
         # makes clone ghe:user/repo a shortcut for clone git@git.squareup.com:user/repo
         insteadOf = ghe
-[init]
-        templatedir = ~/.git_template        
