@@ -15,9 +15,10 @@
 #
 
 curbranch=`git rev-parse --abbrev-ref HEAD`
-toplevel=`git rev-parse --git-dir`
-navhistory=$toplevel/git-navhistory
-postcheckout=$toplevel/hooks/post-checkout
+toplevel=`git rev-parse --show-toplevel`
+gitfolder=$toplevel/`git rev-parse --git-dir`
+navhistory=$gitfolder/git-navhistory
+postcheckout=$gitfolder/hooks/post-checkout
 
 function create_postcheckout_script() {
     echo -n '#!/bin/bash
@@ -25,7 +26,9 @@ curbranch=`git rev-parse --abbrev-ref HEAD`
 last_hash=$1
 cur_hash=$2
 was_a_branch_change=$3
-navhistory=`git rev-parse --show-toplevel`/git-navhistory
+toplevel=`git rev-parse --show-toplevel`
+gitfolder=$toplevel/`git rev-parse --git-dir`
+navhistory=$gitfolder/git-navhistory
 
 if [[ $curbranch == "HEAD" ]]
     then curbranch=$cur_hash

@@ -102,6 +102,10 @@
   </action>
   <action id="Images.ShowThumbnails" />
   <action id="IncrementWindowHeight" />
+  <action id="Inline">
+    <keyboard-shortcut first-keystroke="meta alt N" />
+    <keyboard-shortcut first-keystroke="shift meta COMMA" />
+  </action>
   <action id="JavaScriptDebugger.OpenUrl">
     <keyboard-shortcut first-keystroke="control meta L" />
   </action>
