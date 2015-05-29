@@ -16,6 +16,7 @@
 
 curbranch=`git rev-parse --abbrev-ref HEAD`
 toplevel=`git rev-parse --show-toplevel`
+cd $toplevel
 gitfolder=$toplevel/`git rev-parse --git-dir`
 navhistory=$gitfolder/git-navhistory
 postcheckout=$gitfolder/hooks/post-checkout
@@ -27,6 +28,7 @@ last_hash=$1
 cur_hash=$2
 was_a_branch_change=$3
 toplevel=`git rev-parse --show-toplevel`
+cd $toplevel
 gitfolder=$toplevel/`git rev-parse --git-dir`
 navhistory=$gitfolder/git-navhistory
 
