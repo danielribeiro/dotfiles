@@ -75,10 +75,6 @@
     <keyboard-shortcut first-keystroke="shift TAB" />
     <keyboard-shortcut first-keystroke="meta OPEN_BRACKET" />
   </action>
-  <action id="ExternalJavaDoc">
-    <keyboard-shortcut first-keystroke="shift F1" />
-    <keyboard-shortcut first-keystroke="shift meta B" />
-  </action>
   <action id="ExtractMethod">
     <keyboard-shortcut first-keystroke="meta alt M" />
     <keyboard-shortcut first-keystroke="shift meta K" />
@@ -86,11 +82,7 @@
   <action id="FileChooser.TogglePathShowing" />
   <action id="FindUsages">
     <keyboard-shortcut first-keystroke="alt F7" />
-    <keyboard-shortcut first-keystroke="shift meta F" />
-  </action>
-  <action id="FindUsagesInFile">
-    <keyboard-shortcut first-keystroke="meta F7" />
-    <keyboard-shortcut first-keystroke="shift meta G" />
+    <keyboard-shortcut first-keystroke="shift meta B" />
   </action>
   <action id="Git.Push" />
   <action id="GotoFile">
