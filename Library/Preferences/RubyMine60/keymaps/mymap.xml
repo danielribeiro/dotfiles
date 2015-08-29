@@ -54,10 +54,6 @@
   <action id="EditorMatchBrace">
     <keyboard-shortcut first-keystroke="control M" />
   </action>
-  <action id="EditorPasteSimple">
-    <keyboard-shortcut first-keystroke="shift meta alt V" />
-    <keyboard-shortcut first-keystroke="shift meta B" />
-  </action>
   <action id="EditorScrollDown" />
   <action id="EditorScrollUp" />
   <action id="EditorSelectWord" />
@@ -82,6 +78,10 @@
     <keyboard-shortcut first-keystroke="meta OPEN_BRACKET" />
   </action>
   <action id="FileChooser.TogglePathShowing" />
+  <action id="FindUsages">
+    <keyboard-shortcut first-keystroke="alt F7" />
+    <keyboard-shortcut first-keystroke="shift meta B" />
+  </action>
   <action id="Git.ResolveConflicts">
     <keyboard-shortcut first-keystroke="control meta alt C" />
   </action>
