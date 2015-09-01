@@ -78,6 +78,10 @@
     <keyboard-shortcut first-keystroke="meta OPEN_BRACKET" />
   </action>
   <action id="FileChooser.TogglePathShowing" />
+  <action id="FileStructurePopup">
+    <keyboard-shortcut first-keystroke="meta F12" />
+    <keyboard-shortcut first-keystroke="shift meta O" />
+  </action>
   <action id="FindUsages">
     <keyboard-shortcut first-keystroke="alt F7" />
     <keyboard-shortcut first-keystroke="shift meta B" />
