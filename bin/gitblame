@@ -1,5 +1,4 @@
 #!/usr/bin/env ruby
-#!/usr/bin/env ruby
 require 'find'
 class AuthorScore
   attr_reader :lineCount
