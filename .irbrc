@@ -20,7 +20,8 @@ end
 
 begin
     require 'awesome_print'
-rescue
+rescue Exception
+    puts "- no awesome_print."
 end
 require 'wirble'
 Wirble.init
