@@ -77,6 +77,10 @@
     <keyboard-shortcut first-keystroke="shift TAB" />
     <keyboard-shortcut first-keystroke="meta OPEN_BRACKET" />
   </action>
+  <action id="ExtractMethod">
+    <keyboard-shortcut first-keystroke="meta alt M" />
+    <keyboard-shortcut first-keystroke="shift meta K" />
+  </action>
   <action id="FileChooser.TogglePathShowing" />
   <action id="FileStructurePopup">
     <keyboard-shortcut first-keystroke="meta F12" />
@@ -86,6 +90,7 @@
     <keyboard-shortcut first-keystroke="alt F7" />
     <keyboard-shortcut first-keystroke="shift meta B" />
   </action>
+  <action id="Git.Push" />
   <action id="Git.ResolveConflicts">
     <keyboard-shortcut first-keystroke="control meta alt C" />
   </action>
@@ -109,6 +114,10 @@
   <action id="Inline">
     <keyboard-shortcut first-keystroke="meta alt N" />
     <keyboard-shortcut first-keystroke="shift meta COMMA" />
+  </action>
+  <action id="IntroduceVariable">
+    <keyboard-shortcut first-keystroke="meta alt V" />
+    <keyboard-shortcut first-keystroke="shift meta J" />
   </action>
   <action id="JavaScriptDebugger.OpenUrl">
     <keyboard-shortcut first-keystroke="control meta L" />
@@ -236,5 +245,6 @@
     <keyboard-shortcut first-keystroke="shift alt H" />
   </action>
   <action id="Vcs.UpdateProject" />
+  <action id="hg4idea.push" />
 </keymap>
 
