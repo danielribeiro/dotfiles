@@ -1,0 +1,5 @@
+#!/bin/bash
+set -e
+echo Cleaning up and resetting hard
+git reset --hard
+git clean -dfx
