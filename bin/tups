@@ -1,2 +1,2 @@
 #!/bin/bash
-bundle exec thin -R config.ru  start
+rackup -p 3000
