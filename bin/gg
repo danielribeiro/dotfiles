@@ -13,7 +13,6 @@
 # If you already have a post-checkout hook, you need to add the code under create_postcheckout_script
 #to it to make it work (or execute it somehow, if your hook is not a shell script).
 #
-
 curbranch=`git rev-parse --abbrev-ref HEAD`
 toplevel=`git rev-parse --show-toplevel`
 cd $toplevel

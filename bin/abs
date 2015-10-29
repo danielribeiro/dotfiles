@@ -1,4 +1,4 @@
 #!/bin/bash
 # Imprime o caminho absoluto de um arquivo no diretório atual.
-echo `pwd`/$1 | pbcopy
-echo `pwd`/$1
+echo `pwd -P`/$1 | pbcopy
+echo `pwd -P`/$1
