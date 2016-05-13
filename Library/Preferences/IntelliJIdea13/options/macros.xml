@@ -18,6 +18,9 @@
       <action id="org.jetbrains.plugins.clojure.actions.editor.SpliceAction" />
       <action id="EditorMatchBrace" />
     </macro>
+    <macro name="groovy_template">
+      <typing text-keycode="52:1;91:1">${</typing>
+    </macro>
   </component>
 </application>
 
