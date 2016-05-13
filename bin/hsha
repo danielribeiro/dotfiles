@@ -1,0 +1,3 @@
+#!/bin/bash
+# homebrew sha
+shasum -a 256 "$@"
