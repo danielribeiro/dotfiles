@@ -116,14 +116,14 @@
   <action id="Macro.fat_arrow">
     <keyboard-shortcut first-keystroke="meta alt SEMICOLON" />
   </action>
+  <action id="Macro.groovy_template">
+    <keyboard-shortcut first-keystroke="meta T" />
+  </action>
   <action id="Macro.parens">
     <keyboard-shortcut first-keystroke="meta L" />
   </action>
   <action id="Macro.real-splice">
     <keyboard-shortcut first-keystroke="control BACK_SLASH" />
-  </action>
-  <action id="Macro.ruby-template">
-    <keyboard-shortcut first-keystroke="meta T" />
   </action>
   <action id="MinimizeCurrentWindow" />
   <action id="MoveStatementDown" />
