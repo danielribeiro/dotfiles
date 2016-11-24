@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env bash -ex
 
 # Ensure this file is executable via `chmod a+x lein`, then place it
 # somewhere on your $PATH, like ~/bin. The rest of Leiningen will be
