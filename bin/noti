@@ -1,0 +1,20 @@
+#!/bin/bash
+# Executes a shell command and then notifies it.
+# usage: noti [command] [args...]
+
+if [[ $# -eq 0 ]]
+    then osascript -e 'display notification "Sample notification"'
+else
+    echo "Executing: $@"
+    status="Success for $1"
+    SECONDS=0
+    $@
+    if [[ ! $? -eq 0 ]]
+        then status="Failure"
+    fi
+    duration=$SECONDS
+    delta="$(($duration / 60))m $(($duration % 60))s"
+    echo "[$(date)] it took $delta"
+    osascript -e "display notification \"$@ completed!\nIt took $delta\" with title \"${status}\""
+fi
+
