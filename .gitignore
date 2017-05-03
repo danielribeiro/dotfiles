@@ -10,6 +10,8 @@
 !.bash_profile.template.sh
 !.apple_terminal_color.terminal
 !.machinespec
+!.iterm2prefs/
+!.iterm2prefs/*
 !bin/
 !bin/*
 !bin/android
