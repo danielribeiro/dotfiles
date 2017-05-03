@@ -1,14 +1,14 @@
-#!/bin/bash
+#!/bin/bash -il
 # Executes a shell command and then notifies it.
 # usage: noti [command] [args...]
 
 if [[ $# -eq 0 ]]
-    then osascript -e 'display notification "Sample notification"'
+    then osascript -e "display notification \"Done\""
 else
     echo "Executing: $@"
     status="Success for $1"
     SECONDS=0
-    $@
+    "$@"
     if [[ ! $? -eq 0 ]]
         then status="Failure"
     fi

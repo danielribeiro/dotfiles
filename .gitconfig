@@ -23,8 +23,6 @@
 [mergetool "p4mergetool"]
         cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge $PWD/$BASE $PWD/$REMOTE $PWD/$LOCAL $PWD/$MERGED
         trustExitCode = false
-[difftool "p4mergetool"]
-        cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge $LOCAL $REMOTE        
 
 [alias]
         co = checkout
@@ -70,13 +68,22 @@
 [core]
 	excludesfile = ~/.globalgitignore
 [diff]
-	tool = opendiff
+	tool = p4mergetool
         
-[difftool "opendiff"]
-	cmd = opendiff $LOCAL $REMOTE
 [rerere]
 	enabled = 1
 [log]
 	decorate = full
 [credential]
 	helper = cache --timeout=2592000
+
+
+[url "git@git.squareup.com"]
+        # makes clone ghe:user/repo a shortcut for clone git@git.squareup.com:user/repo
+        insteadOf = ghe
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[difftool "p4mergetool"]
+	cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge $LOCAL $REMOTE

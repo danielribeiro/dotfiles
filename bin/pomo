@@ -1,8 +1,0 @@
-#!/bin/bash -i
-# Based on https://gist.github.com/danielribeiro/9779783deab97485adf4
-cd ~/ &&  source ~/.rvm/scripts/rvm && rvm use ruby-2.1.1 &> /dev/null
-twenty_five_mins=1500
-date
-echo "Work for 25 mins. Check time with 'ps -o etime= -p \$pid'"
-now=`date`
-sleep $twenty_five_mins && terminal-notifier -title "🍅 Pomodoro Done" -message "It started 25 mins ago: $now" &
