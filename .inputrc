@@ -63,4 +63,3 @@ set bell-style none
 # auto completion on case insensitive mode
 set completion-ignore-case On
 
-
