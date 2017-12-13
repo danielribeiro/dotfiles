@@ -22,6 +22,10 @@ module Kernel
         end
         nil
     end    
+
+    def r(project)
+        require project.to_s
+    end
 end
 
 begin

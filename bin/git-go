@@ -1,2 +1,2 @@
 #!/bin/bash
-git push "$@" origin `git branch | grep --colour=never  "*" | sed "s/* //"`
+git push origin `git branch | grep --colour=never  "*" | sed "s/* //"`
