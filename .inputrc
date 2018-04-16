@@ -56,6 +56,9 @@ $endif
 # Contro + / :Undo
 "\C-/": undo
 
+# menu complete. Used to be transpose chars
+"\C-t": menu-complete
+
 
 #bell
 set bell-style none
