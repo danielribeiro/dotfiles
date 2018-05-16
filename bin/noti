@@ -3,7 +3,8 @@
 # usage: noti [command] [args...]
 
 if [[ $# -eq 0 ]]
-    then osascript -e "display notification \"Done\""
+    then time=$(date)
+    osascript -e "display notification \"Done at ${time}\""
 else
     echo "Executing: $@"
     status="Success for $1"
