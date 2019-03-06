@@ -11,8 +11,10 @@ elif [[ $1 == "c" ]] # copy
     fi
 elif [[ $1 == "e" ]] # edit
     then if [[ $# -eq 2 ]] 
-        then mine `git status --short |  sed -E  s'/^ *[^ ]+ +//'g | sed -n "$2"p`
+        then em `git status --short |  sed -E  s'/^ *[^ ]+ +//'g | sed -n "$2"p`
     else
-        mine `git status --short |  sed -E  s'/^ *[^ ]+ +//'g | head -n 1`
+        em `git status --short |  sed -E  s'/^ *[^ ]+ +//'g | head -n 1`
     fi
+else echo Unknown "$0" option: "$@"
+    exit 1
 fi
