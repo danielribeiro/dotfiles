@@ -1,0 +1,5 @@
+#!/bin/bash -il
+# Apple notifies with all args
+# usage: notim [command] [args...]
+endofscript=""
+osascript -e "display notification \"$@$endofscript\" with title \"Notim\""

@@ -1,0 +1,7 @@
+#!/bin/bash
+# Notify with the last command
+# usage: notil
+time=$(date)
+last_command=$(fc -nl -1)
+echo "the last command is ${last_command}"
+# osascript -e "display notification \"${last_command} at ${time}\""

@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby
+# extracts the filename from a ls list
+line = STDIN.readlines.first || ""
+segments = line.strip.split(/\s+/)
+
+if segments.size < 9
+    puts '# Nothing here '
+    exit 0
+end
+
+filename = segments[8..-1].join(" ")
+puts filename

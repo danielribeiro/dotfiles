@@ -1,0 +1,6 @@
+#!/bin/bash -ex
+# full and fast
+# sudo rsync -aEhW --inplace --progress  --delete ~ /Volumes/duat/backup/
+sudo rsync -aEh --progress  --delete ~ /Volumes/duat/backup/ $> /tmp/backupoutput
+echo all done
+

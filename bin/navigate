@@ -1,0 +1,49 @@
+#!/usr/bin/env ruby
+# Interactive tool to help you navigate to a folder. Outputs the folder name after continiously jumping around.
+# Depends on percol to be installed
+# Meant to be used as an input to cd, in a shell alias.
+# Example of alias: alias nn='navigate ; cd "`cat ~/.navigate.out`"'
+# Can't be used directly, otherwise control-c will cancel the cd, not the navigate
+def extract_ls(line)
+    segments = line.strip.split(/\s+/)
+
+    if segments.size < 9
+        raise "Bad ls line: #{line}"
+    end
+
+    filename = segments[8..-1].join(" ")
+    filename
+end
+
+def navigation_done
+    File.open(File.expand_path('~/.navigate.out'), 'w') do |f|
+        f.write(Dir.pwd)
+    end
+    
+end
+
+UP_ONE_LEVEL = '. goes up one level'
+
+trap "SIGINT" do
+  navigation_done
+  exit 0
+end
+
+
+loop do
+    pwd = Dir.pwd
+    curdirs = Dir.glob('*/')
+    output = if curdirs.empty?
+        `(echo #{UP_ONE_LEVEL} from #{pwd}) | percol`
+    else
+        `(echo #{UP_ONE_LEVEL} from #{pwd} && /bin/ls -ldt */) | percol`
+    end.strip
+    
+    if output.empty?
+        raise "Should never be empty"
+    elsif output.start_with?(UP_ONE_LEVEL)
+        Dir.chdir('..')
+    else
+        Dir.chdir(extract_ls(output))
+    end
+end
