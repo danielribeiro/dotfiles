@@ -8,7 +8,7 @@
 !.globalgitignore
 !.git-completion.sh
 !.bash_profile.template.sh
-!.bash_profile.sh
+!.bash_profile
 !.apple_terminal_color.terminal
 !.machinespec
 !.iterm2prefs/
