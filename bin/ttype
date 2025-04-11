@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+
+# Source the appropriate profile file
+if [[ -f ~/.bash_profile ]]; then
+  source ~/.bash_profile
+elif [[ -f ~/.profile ]]; then
+  source ~/.profile
+elif [[ -f ~/.bashrc ]]; then
+  source ~/.bashrc
+fi
+
+# Function to get type information in JSON format for a given command
+get_type_json() {
+  local command="$1"
+  local output
+  local json_output='{}'
+
+  output=$(type "$command" 2>/dev/null)
+
+  if [[ $? -eq 0 ]]; then
+    if [[ "$output" =~ "aliased to" ]]; then
+      local alias_target=$(echo "$output" | sed -E 's/^[^ ]+ is aliased to `(.*)'\''$/\1/')
+      json_output="{\"$command\": {\"type\": \"alias\", \"target\": \"$alias_target\"}}"
+    elif [[ "$output" =~ "is a shell builtin" ]]; then
+      json_output="{\"$command\": {\"type\": \"builtin\"}}"
+    elif [[ "$output" =~ "is a function" ]]; then
+      local function_body=$(declare -f "$command" 2>/dev/null | tail -n +2 | sed '$ s/}$//' | jq -R . | jq -s .)
+      json_output="{\"$command\": {\"type\": \"function\", \"body\": $function_body}}"
+    elif [[ "$output" =~ "is" ]]; then
+      json_output="{\"$command\": {\"type\": \"file\", \"path\": \"$(type -p "$command")\"}}"
+    else
+      json_output="{\"$command\": {\"type\": \"unknown\", \"raw_output\": \"$output\"}}"
+    fi
+  fi
+  echo "$json_output"
+}
+
+# Process each command provided as an argument
+if [[ $# -gt 0 ]]; then
+  for arg in "$@"; do
+    echo "--- Type of '$arg' ---"
+    get_type_json "$arg" | jq '.'
+    echo ""
+  done
+else
+  echo "Usage: $0 <command1> [command2] ..."
+fi
