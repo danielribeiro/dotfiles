@@ -16,6 +16,8 @@
 	<false/>
 	<key>CheckTestRelease</key>
 	<false/>
+	<key>ClickToSelectCommand</key>
+	<true/>
 	<key>ClosingHotkeySwitchesSpaces</key>
 	<true/>
 	<key>CommandSelection</key>
@@ -83,7 +85,7 @@
 			<key>Escaping</key>
 			<integer>2</integer>
 			<key>Text</key>
-			<string>\e[1;5D</string>
+			<string>b</string>
 			<key>Version</key>
 			<integer>2</integer>
 		</dict>
@@ -97,6 +99,19 @@
 			<integer>1</integer>
 			<key>Text</key>
 			<string></string>
+			<key>Version</key>
+			<integer>2</integer>
+		</dict>
+		<key>0xf703-0x300000-0x7c</key>
+		<dict>
+			<key>Action</key>
+			<integer>10</integer>
+			<key>Apply Mode</key>
+			<integer>0</integer>
+			<key>Escaping</key>
+			<integer>2</integer>
+			<key>Text</key>
+			<string>f</string>
 			<key>Version</key>
 			<integer>2</integer>
 		</dict>
@@ -443,7 +458,7 @@
 			<key>Columns</key>
 			<integer>80</integer>
 			<key>Command</key>
-			<string></string>
+			<string>/opt/homebrew/bin/bash</string>
 			<key>Cursor Color</key>
 			<dict>
 				<key>Blue Component</key>
@@ -478,7 +493,7 @@
 			<key>Cursor Type</key>
 			<integer>2</integer>
 			<key>Custom Command</key>
-			<string>No</string>
+			<string>Custom Shell</string>
 			<key>Custom Directory</key>
 			<string>Recycle</string>
 			<key>Default Bookmark</key>
@@ -551,6 +566,8 @@
 				<key>Red Component</key>
 				<real>0.040164675563573837</real>
 			</dict>
+			<key>Load Shell Integration Automatically</key>
+			<false/>
 			<key>Log Directory</key>
 			<string></string>
 			<key>Minimum Contrast</key>

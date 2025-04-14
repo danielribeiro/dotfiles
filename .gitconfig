@@ -26,8 +26,8 @@
 
 [alias]
         co = checkout
-        com = checkout master
-        comf = checkout master -f
+        com = checkout main
+        comf = checkout main -f
         c = commit
         ren = branch -m
         b = branch
@@ -81,4 +81,4 @@
 [difftool "p4mergetool"]
 	cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge $LOCAL $REMOTE
 [init]
-	defaultBranch = master
+	defaultBranch = main
