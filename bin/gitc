@@ -1,4 +1,0 @@
-#!/bin/bash
-# com="'"
-# git commit -a -m $com"$*"$com
-git commit -a -m "$*"

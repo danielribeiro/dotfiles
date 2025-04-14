@@ -1,4 +1,0 @@
-#!/bin/bash
-echo Generating instance dns
-ec2-describe-instances | cut -f 4 | grep --color=never amazonaws.com > ~/amazon.inst
-echo DNS is `cat ~/amazon.inst`
