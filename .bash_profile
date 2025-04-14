@@ -115,6 +115,7 @@ alias jj='cd $DEV_HOME/`(cd $DEV_HOME/ && /bin/ls -ldt *) | percol --auto-fail |
 alias nn='pwd ; navigate ; cd "`cat ~/.navigate.out`"; pwd'
 alias ediff='/Applications/p4merge.app/Contents/Resources/launchp4merge'
 
+
 # Golang:
 # alias jo='cd $DEV_HOME/go/src/$((cd $DEV_HOME/go/src && ls -ldth $(find . -type d -name ".git" -exec dirname {} ";")) | percol --auto-fail | trline " +" "\t" | cut -f 9)'
 
@@ -122,43 +123,62 @@ alias ediff='/Applications/p4merge.app/Contents/Resources/launchp4merge'
 
 
 ###### Shell Functions ######
-function efonte() {
-    em `which "$@"`
+
+# efonte:  Edit the file found by 'which'.
+efonte() {
+    em $(which "$@")
 }
 
-
-
-function grepa () { egrep -in "$@" *; }
-
-function grepi () { egrep -i "$@" ; }
-
-function lsgrep () { ls -1l | egrep -i "$@" ; }
-
-# Shell grep
-function sgrep () { egrep --colour=never "$@" ; }
-
-
-function bak () {
-    cp $1 $1.bak
+# grepa:  Case-insensitive grep with line numbers in the current directory.
+grepa () {
+    egrep -in "$@" *
 }
 
-function ubak () {
-    cp $1.bak $1
+# grepi:  Case-insensitive grep.
+grepi () {
+    egrep -i "$@"
 }
 
-#busca: find for current folder
-function busca () { find . -iname "$@" ; }
-
-function buscag () { find . -iname '*'"$@"'*' ; }
-
-
-function lsfonte() {
-    ls -l `which "$@"`
+# lsgrep: List files and filter with case-insensitive grep.
+lsgrep () {
+    ls -1l | egrep -i "$@"
 }
 
-function fonte() {
-    cat `which "$@"`
+# sgrep: Grep without color output.
+sgrep () {
+    egrep --colour=never "$@"
 }
+
+# bak:  Create a backup of a file.
+bak () {
+    cp "$1" "$1.bak"
+}
+
+# ubak:  Restore a file from its backup.
+ubak () {
+    cp "$1.bak" "$1"
+}
+
+# busca: Find files in the current directory, case-insensitive.
+busca () {
+    find . -iname "$@"
+}
+
+# buscag: Find files in the current directory, case-insensitive, with wildcard.
+buscag () {
+    find . -iname '*'"$@"'*'
+}
+
+# lsfonte: List details of the file found by 'which'.
+lsfonte() {
+    ls -l $(which "$@")
+}
+
+# fonte:  Display the contents of the file found by 'which'.
+fonte() {
+    cat $(which "$@")
+}
+
 
 
 ###### Trashcan utilities for command line ######
