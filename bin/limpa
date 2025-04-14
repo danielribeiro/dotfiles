@@ -1,3 +1,0 @@
-#!/bin/bash
-# clean commonly used back files
-find . -iregex '.*[#~]' -delete
