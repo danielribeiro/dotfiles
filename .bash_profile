@@ -32,13 +32,13 @@ export MY_RUBY_VERSION="ruby-3.4.2"
 export BIN_HOME="$HOME/bin/files"
 export RUBY_BIN_HOME="$HOME/bin/ruby"
 
-export CLOJURESCRIPT_HOME="$BIN_HOME/clojurescript"
+# export CLOJURESCRIPT_HOME="$BIN_HOME/clojurescript"
 export JAVA_HOME=`/usr/libexec/java_home`
 # export CLASSPATH="/home/daniel/bin/files/clojure.jar"
 #export JDK_HOME=$JAVA_HOME
 #export JAVAC="$JAVA_HOME/bin/javac"
-export M2_HOME="$BIN_HOME/apache-maven"
-export M2="$M2_HOME/bin"
+# export M2_HOME="$BIN_HOME/apache-maven"
+# export M2="$M2_HOME/bin"
 export INPUTRC=~/.inputrc
 export CDPATH=.:..:~
 export LIXEIRAPATH=~/.Lixeira
@@ -52,54 +52,27 @@ export PYTHONSTARTUP=~/.pythonrc
 export EC2_HOME="$BIN_HOME/ec2-api-tools"
 # export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$SAGE_ROOT/local/lib
 export HOMEBREWPATH="/opt/homebrew/bin"
-export PATH=$M2:"$HOME/bin":$HOMEBREWPATH:$RUBY_BIN_HOME:$PATH:$CLOJURESCRIPT_HOME/bin:$EC2_HOME/bin
+
+# because of homebrew, my bin path is added at the end of the file
+export PATH=$RUBY_BIN_HOME:$PATH
 
 
 # less with color and binary support
 export LESS=-MisRf
-
-###### Shell Functions ######
-function grepa () { egrep -in "$@" *; }
-
-function grepi () { egrep -i "$@" ; }
-
-function lsgrep () { ls -1l | egrep -i "$@" ; }
-
-# Shell grep
-function sgrep () { egrep --colour=never "$@" ; }
-
-
-function bak () {
-    cp $1 $1.bak
-}
-
-function ubak () {
-    cp $1.bak $1
-}
-
-#busca: find for current folder
-function busca () { find . -iname "$@" ; }
-
-function buscag () { find . -iname '*'"$@"'*' ; }
-
-
-function lsfonte() {
-    ls -l `which "$@"`
-}
-
-function fonte() {
-    cat `which "$@"`
-}
-
-function efonte() {
-    em `which "$@"`
-}
 
 ##### Home Specific #####
 if [ $HOSTNAME == fnord ]
     then alias su="su -"
 # C-s should not lock the terminal
     stty stop undef
+fi
+
+###### SSHs config ######
+if [[ -z $SSH_CONNECTION ]];
+    then PS1='\[\033[01;32m\]\u@\h\[\033[01;34m\]$(__git_ps1 " (%s)") \W \$ \[\033[00m\]'
+    #then PS1='\[\033[01;32m\]\u@\h\[\033[01;34m\] \W \$ \[\033[00m\]'
+else
+    PS1='\[\033[01;33m\]\u@\h\[\033[01;34m\] \W \$ \[\033[00m\]'
 fi
 
 ###### General aliases ######
@@ -146,13 +119,46 @@ alias ediff='/Applications/p4merge.app/Contents/Resources/launchp4merge'
 # alias jo='cd $DEV_HOME/go/src/$((cd $DEV_HOME/go/src && ls -ldth $(find . -type d -name ".git" -exec dirname {} ";")) | percol --auto-fail | trline " +" "\t" | cut -f 9)'
 
 
-###### SSHs config ######
-if [[ -z $SSH_CONNECTION ]];
-    then PS1='\[\033[01;32m\]\u@\h\[\033[01;34m\]$(__git_ps1 " (%s)") \W \$ \[\033[00m\]'
-    #then PS1='\[\033[01;32m\]\u@\h\[\033[01;34m\] \W \$ \[\033[00m\]'
-else
-    PS1='\[\033[01;33m\]\u@\h\[\033[01;34m\] \W \$ \[\033[00m\]'
-fi
+
+
+###### Shell Functions ######
+function efonte() {
+    em `which "$@"`
+}
+
+
+
+function grepa () { egrep -in "$@" *; }
+
+function grepi () { egrep -i "$@" ; }
+
+function lsgrep () { ls -1l | egrep -i "$@" ; }
+
+# Shell grep
+function sgrep () { egrep --colour=never "$@" ; }
+
+
+function bak () {
+    cp $1 $1.bak
+}
+
+function ubak () {
+    cp $1.bak $1
+}
+
+#busca: find for current folder
+function busca () { find . -iname "$@" ; }
+
+function buscag () { find . -iname '*'"$@"'*' ; }
+
+
+function lsfonte() {
+    ls -l `which "$@"`
+}
+
+function fonte() {
+    cat `which "$@"`
+}
 
 
 ###### Trashcan utilities for command line ######
@@ -202,5 +208,10 @@ source /opt/homebrew/share/chruby/auto.sh
 chruby "$MY_RUBY_VERSION"
 
 # homebrew
-eval "$(pyenv init -)"
 eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# pyenv
+eval "$(pyenv init -)"
+
+# My bin files take priority. In particular, gs for me is a 'git status' tool. Sorry ghostcript
+export PATH="$HOME/bin":$PATH

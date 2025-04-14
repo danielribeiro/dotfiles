@@ -1,20 +1,60 @@
 #!/bin/bash
+
+# git utility script: shortcuts for common git commands.
+# Designed for use in a git repository.
+
+# Function to display help message.
+function show_help {
+  echo "Usage: $0 [option] [file_number]"
+  echo "Options:"
+  echo "  -h, --help  Display this help message"
+  echo "  l           List modified files with line numbers"
+  echo "  c [n]       Copy nth (or first) modified file name to clipboard"
+  echo "  e [n]       Open nth (or first) modified file in editor"
+  echo ""
+  echo "  If no option is given, 'git status' is executed."
+  echo "  [n] is an optional file number from the 'git status --short' list."
+  exit 0
+}
+
+# Check for help option first.
+if [[ "$1" == "-h" || "$1" == "--help" ]]; then
+  show_help
+fi
+
+# Check if no arguments are provided.
 if [[ $# -eq 0 ]]
-    then git status
+then
+  git status # Display git status if no arguments.
 elif [[ $1 == "l" ]]
-    then git status --short |  sed -E  s'/^ *[^ ]+ +//'g | nl -n ln
+then
+  # List modified files with line numbers.
+  # Remove status flags, number lines.
+  git status --short | sed -E s'/^ *[^ ]+ +//'g | nl -n ln
 elif [[ $1 == "c" ]] # copy
-    then if [[ $# -eq 2 ]] 
-        then git status --short |  sed -E  s'/^ *[^ ]+ +//'g | sed -n "$2"p | pbcopy
-    else
-        git status --short |  sed -E  s'/^ *[^ ]+ +//'g | head -n 1 | pbcopy
-    fi
+then
+  # Copy filename to clipboard.
+  if [[ $# -eq 2 ]]
+  then
+    # Copy nth modified file to clipboard.
+    git status --short | sed -E s'/^ *[^ ]+ +//'g | sed -n "$2"p | pbcopy
+  else
+    # Copy first modified file to clipboard.
+    git status --short | sed -E s'/^ *[^ ]+ +//'g | head -n 1 | pbcopy
+  fi
 elif [[ $1 == "e" ]] # edit
-    then if [[ $# -eq 2 ]] 
-        then em `git status --short |  sed -E  s'/^ *[^ ]+ +//'g | sed -n "$2"p`
-    else
-        em `git status --short |  sed -E  s'/^ *[^ ]+ +//'g | head -n 1`
-    fi
-else echo Unknown "$0" option: "$@"
-    exit 1
+then
+  # Open file in editor.
+  if [[ $# -eq 2 ]]
+  then
+    # Open nth modified file.
+    em `git status --short | sed -E s'/^ *[^ ]+ +//'g | sed -n "$2"p`
+  else
+    # Open first modified file.
+    em `git status --short | sed -E s'/^ *[^ ]+ +//'g | head -n 1`
+  fi
+else
+  # Handle unknown options.
+  echo "Unknown \"$0\" option: \"$@\""
+  exit 1
 fi
