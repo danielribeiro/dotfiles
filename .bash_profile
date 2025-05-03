@@ -106,7 +106,7 @@ alias serveit="python -m SimpleHTTPServer 8001"
 alias brake="bundle exec rake"
 alias be="bundle exec"
 
-alias gself="cd; export GIT_DIR=$HOME/tmp/dotfiles/.git"
+alias gself="cd; export GIT_DIR=tmp/dotfiles/.git"
 alias gcd='cd `git rev-parse --show-toplevel`'
 
 # See $HOME/bin/extractlsline

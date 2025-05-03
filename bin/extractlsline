@@ -8,5 +8,12 @@ if segments.size < 9
     exit 0
 end
 
-filename = segments[8..-1].join(" ")
+# Handle symlinks by checking for '->' and adjusting the filename extraction
+arrow_index = segments.index("->")
+if arrow_index
+    filename = segments[8...arrow_index].join(" ")
+else
+    filename = segments[8..-1].join(" ")
+end
+
 puts filename

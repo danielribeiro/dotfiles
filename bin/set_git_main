@@ -1,0 +1,65 @@
+#!/bin/bash
+# --- Configuration ---
+# You can change these variable names if needed, but 'master' and 'main' are standard.
+old_branch_name="master"
+new_branch_name="main"
+
+# --- Script Logic ---
+
+# 1. Check if inside a Git repository and get the top-level directory path
+toplevel_dir=$(git rev-parse --show-toplevel 2>/dev/null)
+git_check_status=$? # Capture the exit status of the git command
+
+# Exit if not in a Git repository
+if [ $git_check_status -ne 0 ]; then
+  echo "Error: Not inside a Git repository."
+  exit 1
+fi
+
+# 2. Check if the current directory is the root of the Git repository
+current_dir=$(pwd)
+if [ "$current_dir" != "$toplevel_dir" ]; then
+  echo "Info: Current directory ($current_dir) is not the root ($toplevel_dir)."
+  echo "Info: Script only operates on the repository root. No action taken."
+  exit 0 # Exit gracefully, not an error.
+fi
+
+echo "Info: Current directory is the root of the Git repository."
+
+# 3. Check if the old branch exists
+# Use 'git rev-parse --verify' for a more script-friendly check than 'git branch --list'
+if git rev-parse --verify --quiet "refs/heads/$old_branch_name" > /dev/null; then
+  echo "Info: Branch '$old_branch_name' exists."
+
+  # 4. Check if the new branch *does not* exist
+  if ! git rev-parse --verify --quiet "refs/heads/$new_branch_name" > /dev/null; then
+    echo "Info: Branch '$new_branch_name' does not exist."
+
+    # 5. Conditions met: Rename the branch
+    echo "Attempting to rename branch '$old_branch_name' to '$new_branch_name'..."
+    git branch -m "$old_branch_name" "$new_branch_name"
+    rename_status=$? # Capture exit status of rename command
+
+    if [ $rename_status -eq 0 ]; then
+      echo "Success: Renamed branch '$old_branch_name' to '$new_branch_name'."
+      echo "---"
+      echo "Next steps you might consider:"
+      echo "1. Push the new main branch: git push -u origin $new_branch_name"
+      echo "2. Update the default branch on your remote repository (e.g., GitHub, GitLab)."
+      echo "3. Delete the old remote master branch (use with caution!): git push origin --delete $old_branch_name"
+      echo "---"
+    else
+      echo "Error: Failed to rename branch '$old_branch_name' to '$new_branch_name'. (Exit status: $rename_status)"
+      exit 1
+    fi
+  else
+    echo "Info: Branch '$new_branch_name' already exists. No action taken."
+  fi
+else
+  echo "Info: Branch '$old_branch_name' does not exist. No action taken."
+fi
+
+
+git fetch origin --prune
+git branch --set-upstream-to=origin/main main
+exit 0
