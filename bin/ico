@@ -1,2 +1,2 @@
 #!/bin/bash
-git checkout  `git for-each-ref  --sort=-committerdate refs/heads/   --format="%(committerdate:relative) %09 %(refname:short)" | percol |  sed 's/^.*ago[ ]*//'`
+git checkout  `git for-each-ref  --sort=-committerdate refs/heads/   --format="%(committerdate:relative) %09 %(refname:short)" | ifilter |  sed 's/^.*ago[ ]*//'`

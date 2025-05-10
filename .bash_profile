@@ -25,7 +25,6 @@ shopt -s histappend
 PROMPT_COMMAND='history -a'
 
 ###### PATHS env Variables ######
-# Autojump-like for current dir only with percol
 export DEV_HOME="$HOME/projects"
 export MY_RUBY_VERSION="ruby-3.4.2"
 
@@ -110,8 +109,8 @@ alias gself="cd; export GIT_DIR=tmp/dotfiles/.git"
 alias gcd='cd `git rev-parse --show-toplevel`'
 
 # See $HOME/bin/extractlsline
-alias j='cd "`/bin/ls -ldt */ | percol --auto-fail | extractlsline`"'
-alias jj='cd $DEV_HOME/`(cd $DEV_HOME/ && /bin/ls -ldt *) | percol --auto-fail | extractlsline`'
+alias j='cd "`/bin/ls -ldt */ | ifilter | extractlsline`"'
+alias jj='cd $DEV_HOME/`(cd $DEV_HOME/ && /bin/ls -ldt *) | ifilter | extractlsline`'
 alias nn='pwd ; navigate ; cd "`cat ~/.navigate.out`"; pwd'
 alias ediff='/Applications/p4merge.app/Contents/Resources/launchp4merge'
 

@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 # Interactive tool to help you navigate to a folder. Outputs the folder name after continiously jumping around.
-# Depends on percol to be installed
+# Depends on ifilter on my $BIN to be installed
 # Meant to be used as an input to cd, in a shell alias.
 # Example of alias: alias nn='navigate ; cd "`cat ~/.navigate.out`"'
 # Can't be used directly, otherwise control-c will cancel the cd, not the navigate
@@ -34,9 +34,9 @@ loop do
     pwd = Dir.pwd
     curdirs = Dir.glob('*/')
     output = if curdirs.empty?
-        `(echo #{UP_ONE_LEVEL} from #{pwd}) | percol`
+        `(echo #{UP_ONE_LEVEL} from #{pwd}) | ifilter`
     else
-        `(echo #{UP_ONE_LEVEL} from #{pwd} && /bin/ls -ldt */) | percol`
+        `(echo #{UP_ONE_LEVEL} from #{pwd} && /bin/ls -ldt */) | ifilter`
     end.strip
     
     if output.empty?
