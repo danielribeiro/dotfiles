@@ -1,2 +1,2 @@
 #!/bin/bash
-exec fzf --cycle --reverse "$@"
+exec fzf --cycle --reverse --color 'fg+:#bdbdbd,bg+:#8e378e,pointer:#2d9fcc' "$@"

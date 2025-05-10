@@ -1,4 +1,4 @@
-#!/bin/bash -ex
+#!/bin/bash -e
 file=$(cd "$HOME/Downloads" && /bin/ls -lthd * | ifilter | extractlsline)
 mv "$HOME/Downloads/$file" ./
 echo "$file is here!"
