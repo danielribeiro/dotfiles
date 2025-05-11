@@ -183,10 +183,7 @@ fonte() {
 ###### Trashcan utilities for command line ######
 function removetrash () { mv "$@" $LIXEIRAPATH ; }
 
-function auxLmv () {
-     COMPREPLY=($LIXEIRAPATH/*)
-}
-
+# Function to move a file from Trash to current dir and optionally rename it (second argument)
 function lmv () {
     TEMPOLDPWD=$OLDPWD
     cd "$LIXEIRAPATH" && mv "$1" "$OLDPWD"
@@ -194,15 +191,25 @@ function lmv () {
     if [ '.' != $2 ]; then mv "$1" "$2"; fi
     OLDPWD="$TEMPOLDPWD"
 }
+
+# Lists files on the Trash
 function lls () {
     TEMPOLDPWD="$OLDPWD"
     cd $LIXEIRAPATH
-    ls $@
+    /bin/ls -lrth  $@
     cd "$OLDPWD"
     OLDPWD=$TEMPOLDPWD
 }
+
+# Brings the Trash file to current dir
 function lvem () {
     lmv "$1" .
+}
+
+# Completion function for lmv and lvem
+function auxLmv () {
+    local cur=${COMP_WORDS[COMP_CWORD]}
+    mapfile -t COMPREPLY < <(cd "$LIXEIRAPATH" && compgen -f -- "$cur")
 }
 
 complete -o filenames -F auxLmv lvem lmv
