@@ -1,0 +1,53 @@
+#!/bin/bash
+#
+# Name: gls (Git List Status)
+# Description: Lists all files and directories (like 'ls -1').
+# If a directory is a Git repository AND has a remote.origin.url,
+# it appends " -> <URL>" to the line.
+# Generated mostly with gemini:
+# write me a shell script called 'gls' that does what "ls -1" does, but for every line adds a '->' if and only if that folder has BOTH is a git project AND has a proper 'git config --get remote.origin.url' (non empty). Example
+
+# $ ./gls.sh
+# hasnogitfolder/
+# my_imported_gists/ -> https://github.com/myusername/my_imported_gists.git
+
+# ANSI Color Codes for Bold Blue directories and a reset code
+BLUE_BOLD='\033[1;34m'
+RESET='\033[0m'
+
+# Set Internal Field Separator to handle file names with spaces correctly
+IFS=$'\n'
+
+# Loop through all files and directories in the current directory
+# The '*' glob expands to all non-hidden files/directories.
+for item in *; do
+    # Check if the item is a directory
+    if [ -d "$item" ]; then
+        # A directory should always be displayed with a trailing slash
+        display_name="$item/"
+
+        # Check if the directory is a Git repository (i.e., contains a .git folder)
+        if [ -d "$item/.git" ]; then
+            # Attempt to retrieve the remote.origin.url configuration.
+            # -C "$item" runs the git command from inside that directory.
+            # 2>/dev/null suppresses any error messages if the config key doesn't exist.
+            # tr -d '\n' removes the trailing newline that 'git config' prints.
+            remote_url=$(git -C "$item" config --get remote.origin.url 2>/dev/null | tr -d '\n')
+
+            # Check if the remote URL variable is non-empty
+            if [ -n "$remote_url" ]; then
+                # Git repo with a remote URL found, print directory in Bold Blue
+                echo -e "${BLUE_BOLD}$display_name${RESET} -> $remote_url"
+            else
+                # Git repo found, but no remote URL is configured, print directory in Bold Blue
+                echo -e "${BLUE_BOLD}$display_name${RESET}"
+            fi
+        else
+            # It's a directory but not a Git repo, print directory in Bold Blue
+            echo -e "${BLUE_BOLD}$display_name${RESET}"
+        fi
+    else
+        # It's a regular file, just print the name (no color)
+        echo "$item"
+    fi
+done
