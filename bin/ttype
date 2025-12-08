@@ -12,10 +12,6 @@ shopt -s expand_aliases
 
 # --- Initialization ---
 
-# The original issue is that aliases are often guarded by checks for an interactive shell (like 'if [ -n "$PS1" ]')
-# in files like ~/.bashrc. When this script is run as an executable, the shell is non-interactive, 
-# and the aliases are skipped during sourcing.
-
 # FIX: Temporarily set PS1 to a non-empty value to trick the config files into loading
 # aliases and functions, and restore the original value immediately after sourcing.
 
@@ -58,8 +54,13 @@ get_type_json() {
     elif [[ "$output" =~ "is a shell builtin" ]]; then
       json_output="{\"$command\": {\"type\": \"builtin\"}}"
     elif [[ "$output" =~ "is a function" ]]; then
-      # Extract function body (removing function declaration and trailing brace)
-      local function_body_raw=$(declare -f "$command" 2>/dev/null | tail -n +2 | head -n -1)
+      # *** FIX APPLIED HERE ***
+      # Replaced non-portable 'head -n -1' with cross-platform 'sed '$d'' to remove the last line (the closing '}')
+      # 1. Get full definition: declare -f "$command"
+      # 2. Remove the first line (function signature): tail -n +2
+      # 3. Remove the last line (closing brace '}'): sed '$d'
+      local function_body_raw=$(declare -f "$command" 2>/dev/null | tail -n +2 | sed '$d')
+      
       # Safely JSON-escape the multiline body string using jq -R . | jq -s .
       local function_body_escaped=$(printf "%s" "$function_body_raw" | jq -R . | jq -s .)
       
