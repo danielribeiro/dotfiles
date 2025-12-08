@@ -1,6 +1,29 @@
 #!/usr/bin/env bash
 
-# Source the appropriate profile file
+# Enable alias expansion in this non-interactive shell context.
+shopt -s expand_aliases
+
+# This script determines the type of a command line entry (alias, builtin, function, file, etc.)
+# and outputs the result as a structured JSON object.
+
+# NOTE: When run as an executable (./ttype.sh), it runs in a subshell and may not see
+# aliases or functions defined interactively unless they are saved in your sourced config files.
+# To detect interactively-defined commands, run the script using: . ./ttype.sh <command>
+
+# --- Initialization ---
+
+# The original issue is that aliases are often guarded by checks for an interactive shell (like 'if [ -n "$PS1" ]')
+# in files like ~/.bashrc. When this script is run as an executable, the shell is non-interactive, 
+# and the aliases are skipped during sourcing.
+
+# FIX: Temporarily set PS1 to a non-empty value to trick the config files into loading
+# aliases and functions, and restore the original value immediately after sourcing.
+
+PS1_SAVE="$PS1"
+export PS1='__ttype_load_aliases__' # Set to a non-empty value
+
+# Source the appropriate profile file to ensure aliases and functions are loaded.
+# We prioritize the standard login/profile files, falling back to bashrc.
 if [[ -f ~/.bash_profile ]]; then
   source ~/.bash_profile
 elif [[ -f ~/.profile ]]; then
@@ -9,36 +32,72 @@ elif [[ -f ~/.bashrc ]]; then
   source ~/.bashrc
 fi
 
-# Function to get type information in JSON format for a given command
+# Restore the original PS1 value (good practice, though the script exits shortly)
+export PS1="$PS1_SAVE"
+
+# Function to safely get the command type and details in JSON format.
+# Requires 'jq' for proper function body string escaping and output formatting.
 get_type_json() {
   local command="$1"
   local output
   local json_output='{}'
 
+  # Get the full output from 'type'
   output=$(type "$command" 2>/dev/null)
+  local type_exit_code=$?
 
-  if [[ $? -eq 0 ]]; then
+  if [[ $type_exit_code -eq 0 ]]; then
     if [[ "$output" =~ "aliased to" ]]; then
-      local alias_target=$(echo "$output" | sed -E 's/^[^ ]+ is aliased to `(.*)'\''$/\1/')
+      # --- FIX: Robust Alias Target Extraction ---
+      # 1. Strip the "COMMAND is aliased to " prefix.
+      # 2. Strip any leading/trailing quotes (` ' "`) from the target.
+      local alias_target_raw=$(echo "$output" | sed -E "s/^[^ ]+ is aliased to //")
+      local alias_target=$(echo "$alias_target_raw" | sed -E "s/^['\`\"]|['\`\"]$//g")
+
       json_output="{\"$command\": {\"type\": \"alias\", \"target\": \"$alias_target\"}}"
     elif [[ "$output" =~ "is a shell builtin" ]]; then
       json_output="{\"$command\": {\"type\": \"builtin\"}}"
     elif [[ "$output" =~ "is a function" ]]; then
-      local function_body=$(declare -f "$command" 2>/dev/null | tail -n +2 | sed '$ s/}$//' | jq -R . | jq -s .)
-      json_output="{\"$command\": {\"type\": \"function\", \"body\": $function_body}}"
+      # Extract function body (removing function declaration and trailing brace)
+      local function_body_raw=$(declare -f "$command" 2>/dev/null | tail -n +2 | head -n -1)
+      # Safely JSON-escape the multiline body string using jq -R . | jq -s .
+      local function_body_escaped=$(printf "%s" "$function_body_raw" | jq -R . | jq -s .)
+      
+      json_output="{\"$command\": {\"type\": \"function\", \"body\": $function_body_escaped}}"
+    elif [[ "$output" =~ "is a keyword" ]]; then
+        json_output="{\"$command\": {\"type\": \"keyword\"}}"
     elif [[ "$output" =~ "is" ]]; then
-      json_output="{\"$command\": {\"type\": \"file\", \"path\": \"$(type -p "$command")\"}}"
+      # This handles executable files (paths)
+      local path_output=$(type -p "$command" 2>/dev/null)
+      if [[ -n "$path_output" ]]; then
+        json_output="{\"$command\": {\"type\": \"file\", \"path\": \"$path_output\"}}"
+      else
+        json_output="{\"$command\": {\"type\": \"unknown\", \"raw_output\": \"$output\"}}"
+      fi
     else
       json_output="{\"$command\": {\"type\": \"unknown\", \"raw_output\": \"$output\"}}"
     fi
+  else
+    # Command not found
+    json_output="{\"$command\": {\"type\": \"not_found\"}}"
   fi
+  
   echo "$json_output"
 }
 
+# --- Main Execution ---
+
 # Process each command provided as an argument
 if [[ $# -gt 0 ]]; then
+  # Check for jq dependency
+  if ! command -v jq &> /dev/null; then
+      echo "Error: 'jq' is required for this script to function correctly, especially for parsing output." >&2
+      exit 1
+  fi
+  
   for arg in "$@"; do
     echo "--- Type of '$arg' ---"
+    # Use the function's output directly with 'jq .' for pretty printing
     get_type_json "$arg" | jq '.'
     echo ""
   done
