@@ -44,43 +44,72 @@ get_type_json() {
 
   if [[ $type_exit_code -eq 0 ]]; then
     if [[ "$output" =~ "aliased to" ]]; then
-      # --- FIX: Robust Alias Target Extraction ---
-      # 1. Strip the "COMMAND is aliased to " prefix.
-      # 2. Strip any leading/trailing quotes (` ' "`) from the target.
+      # Extract raw alias target.
       local alias_target_raw=$(echo "$output" | sed -E "s/^[^ ]+ is aliased to //")
       local alias_target=$(echo "$alias_target_raw" | sed -E "s/^['\`\"]|['\`\"]$//g")
 
-      json_output="{\"$command\": {\"type\": \"alias\", \"target\": \"$alias_target\"}}"
+      # *** FIX: Use jq to safely construct the JSON object for aliases ***
+      json_output=$(jq -n \
+        --arg cmd "$command" \
+        --arg target "$alias_target" \
+        '{ ($cmd): { type: "alias", target: $target } }'
+      )
     elif [[ "$output" =~ "is a shell builtin" ]]; then
-      json_output="{\"$command\": {\"type\": \"builtin\"}}"
+      # Use jq to safely construct the JSON object for builtins
+      json_output=$(jq -n \
+        --arg cmd "$command" \
+        '{ ($cmd): { type: "builtin" } }'
+      )
     elif [[ "$output" =~ "is a function" ]]; then
-      # *** FIX APPLIED HERE ***
-      # Replaced non-portable 'head -n -1' with cross-platform 'sed '$d'' to remove the last line (the closing '}')
       # 1. Get full definition: declare -f "$command"
       # 2. Remove the first line (function signature): tail -n +2
       # 3. Remove the last line (closing brace '}'): sed '$d'
       local function_body_raw=$(declare -f "$command" 2>/dev/null | tail -n +2 | sed '$d')
       
-      # Safely JSON-escape the multiline body string using jq -R . | jq -s .
-      local function_body_escaped=$(printf "%s" "$function_body_raw" | jq -R . | jq -s .)
-      
-      json_output="{\"$command\": {\"type\": \"function\", \"body\": $function_body_escaped}}"
+      # *** FIX: Use jq to safely construct the JSON object for functions ***
+      # jq handles all necessary escaping for the body string.
+      json_output=$(jq -n \
+        --arg cmd "$command" \
+        --arg body "$function_body_raw" \
+        '{ ($cmd): { type: "function", body: $body } }'
+      )
     elif [[ "$output" =~ "is a keyword" ]]; then
-        json_output="{\"$command\": {\"type\": \"keyword\"}}"
+      # Use jq to safely construct the JSON object for keywords
+      json_output=$(jq -n \
+        --arg cmd "$command" \
+        '{ ($cmd): { type: "keyword" } }'
+      )
     elif [[ "$output" =~ "is" ]]; then
-      # This handles executable files (paths)
       local path_output=$(type -p "$command" 2>/dev/null)
       if [[ -n "$path_output" ]]; then
-        json_output="{\"$command\": {\"type\": \"file\", \"path\": \"$path_output\"}}"
+        # *** FIX: Use jq to safely construct the JSON object for files ***
+        json_output=$(jq -n \
+          --arg cmd "$command" \
+          --arg path "$path_output" \
+          '{ ($cmd): { type: "file", path: $path } }'
+        )
       else
-        json_output="{\"$command\": {\"type\": \"unknown\", \"raw_output\": \"$output\"}}"
+        # Unknown type, fallback
+        json_output=$(jq -n \
+          --arg cmd "$command" \
+          --arg raw "$output" \
+          '{ ($cmd): { type: "unknown", raw_output: $raw } }'
+        )
       fi
     else
-      json_output="{\"$command\": {\"type\": \"unknown\", \"raw_output\": \"$output\"}}"
+      # Unknown type, fallback
+      json_output=$(jq -n \
+        --arg cmd "$command" \
+        --arg raw "$output" \
+        '{ ($cmd): { type: "unknown", raw_output: $raw } }'
+      )
     fi
   else
     # Command not found
-    json_output="{\"$command\": {\"type\": \"not_found\"}}"
+    json_output=$(jq -n \
+      --arg cmd "$command" \
+      '{ ($cmd): { type: "not_found" } }'
+    )
   fi
   
   echo "$json_output"
@@ -98,7 +127,7 @@ if [[ $# -gt 0 ]]; then
   
   for arg in "$@"; do
     echo "--- Type of '$arg' ---"
-    # Use the function's output directly with 'jq .' for pretty printing
+    # The function now outputs fully formatted JSON, piped directly to jq for pretty printing
     get_type_json "$arg" | jq '.'
     echo ""
   done
