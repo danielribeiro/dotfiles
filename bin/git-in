@@ -1,2 +1,2 @@
-#!/bin/bash
+#!/usr/bin/env bash
 git pull "$@" origin `git branch | grep --colour=never  "*" | sed "s/* //"`

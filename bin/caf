@@ -1,2 +1,2 @@
-#!/bin/bash -x
+#!/usr/bin/env bash -x
 caffeinate -dsiu

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # git utility script: shortcuts for common git commands.
 # Designed for use in a git repository.
@@ -58,3 +58,4 @@ else
   echo "Unknown \"$0\" option: \"$@\""
   exit 1
 fi
+

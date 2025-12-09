@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 #
 # Git branch navigation utility.
 #
@@ -21,7 +21,7 @@ navhistory=$gitfolder/git-navhistory
 postcheckout=$gitfolder/hooks/post-checkout
 
 function create_postcheckout_script() {
-    echo -n '#!/bin/bash
+    echo -n '#!/usr/bin/env bash
 curbranch=`git rev-parse --abbrev-ref HEAD`
 last_hash=$1
 cur_hash=$2
@@ -72,3 +72,4 @@ if [[ $# -eq 1 ]]
 else 
     navigate_back 1
 fi
+

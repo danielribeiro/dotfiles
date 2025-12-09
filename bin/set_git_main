@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # --- Configuration ---
 # You can change these variable names if needed, but 'master' and 'main' are standard.
 old_branch_name="master"

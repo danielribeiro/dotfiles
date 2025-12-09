@@ -1,3 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Ag for java
 ag --java "$@"
+

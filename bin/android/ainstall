@@ -1,3 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Installs the debug apk on the bin folder.
 adb install -r bin/*debug.apk
+

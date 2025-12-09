@@ -46,3 +46,4 @@ end
 if $PROGRAM_NAME == __FILE__
   Printer.new.doit ARGV
 end
+

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 target="HEAD"
 if [[ $# -eq 1 ]]
     then target=$1
@@ -11,4 +11,5 @@ for p in $parents
     do PAGER=cat git show --pretty=raw $p
     echo
 done
+
 

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 #
 # Name: gls (Git List Status)
 # Description: Lists all files and directories (like 'ls -1').

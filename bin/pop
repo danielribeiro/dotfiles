@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 extraarg=`cat ~/.pushstore`
 if [ $# == 0 ]
     then echo $extraarg

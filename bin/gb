@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
 #http://www.commandlinefu.com/commands/view/2345/show-git-branches-by-date-useful-for-showing-active-branches
 # better performance here: http://blog.jeffterrace.com/2013/01/git-branches-by-date.html
 git for-each-ref --shell --sort=committerdate refs/heads/ --format="echo -e '\033[00;32m%(committerdate) %09 \033[00;34m%(committerdate:relative) %09 \033[00m%(refname:short)'"  | bash
+

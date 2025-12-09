@@ -1,4 +1,4 @@
-#!/bin/bash -il
+#!/usr/bin/env bash -il
 # Executes a shell command and then notifies it.
 # usage: noti [command] [args...]
 
@@ -18,4 +18,5 @@ else
     echo "[$(date)] it took $delta"
     osascript -e "display notification \"$@ completed!\nIt took $delta\" with title \"${status}\""
 fi
+
 

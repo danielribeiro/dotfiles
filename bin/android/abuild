@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 #builds the build.xml
 if [[ $# -eq 0 ]]
     then echo "Give me a target: android list target (copied to clipboard)"
@@ -6,4 +6,5 @@ if [[ $# -eq 0 ]]
 else
     android update project --path . --target "$1"
 fi
+
 

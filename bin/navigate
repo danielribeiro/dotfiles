@@ -47,3 +47,4 @@ loop do
         Dir.chdir(extract_ls(output))
     end
 end
+

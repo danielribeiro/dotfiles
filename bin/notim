@@ -1,4 +1,4 @@
-#!/bin/bash -il
+#!/usr/bin/env bash -il
 # Apple notifies with all args
 # usage: notim [command] [args...]
 endofscript=""

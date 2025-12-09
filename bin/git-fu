@@ -1,5 +1,6 @@
-#!/bin/bash
+#!/usr/bin/env bash
 set -e
 echo Cleaning up and resetting hard
 git reset --hard
 git clean -ffd
+

@@ -1,3 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Ag for protocol buffers
 ag "$@" -G '.*\.proto$'
+

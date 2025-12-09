@@ -1,6 +1,7 @@
-#!/bin/bash
+#!/usr/bin/env bash
 for f in `find . -type f`
     do cat -s $f > $f.tmp
     mv $f.tmp $f
 done
+
 

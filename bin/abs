@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Print the asolute path of a given file, assuming it is below the current dir. Copies it to clipboard.
 echo `pwd -P`/$1 | pbcopy
 echo `pwd -P`/$1
