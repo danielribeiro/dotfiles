@@ -40,7 +40,8 @@ loop do
     end.strip
     
     if output.empty?
-        raise "Should never be empty"
+        navigation_done
+        exit 0
     elsif output.start_with?(UP_ONE_LEVEL)
         Dir.chdir('..')
     else

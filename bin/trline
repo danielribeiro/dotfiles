@@ -1,9 +1,17 @@
 #!/usr/bin/perl
-$what = $ARGV[0];
-$to = $ARGV[1];
-while (<STDIN>){
-    eval '$_ =~ ' . "s|$what|$to|gi";
+use strict;
+use warnings;
+
+my $pattern = $ARGV[0];
+my $replacement = $ARGV[1];
+
+# 1. Safely handle the newline escape in the replacement string
+$replacement =~ s/\\n/\n/g;
+$replacement =~ s/\\t/\t/g;
+
+while (<STDIN>) {
+    # 2. Use the variable directly in the substitution.
+    # This treats $pattern as a REGEX, but not as PERL CODE.
+    $_ =~ s/$pattern/$replacement/gi;
     print;
 }
-
-
