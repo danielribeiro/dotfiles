@@ -93,6 +93,10 @@ alias untar="tar xvf"
 alias untarz="tar xvfz"
 alias c="pbcopy"
 
+# alias for ripgrep, but more comfortable while still using ag
+alias ag="rg"
+export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
+
 # tools for better xargs
 alias xa="xargs -0"
 alias xac="xargs -0 echo"

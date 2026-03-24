@@ -1,0 +1,11 @@
+# Colors: Match ag (Purple bold filenames, Black text on Yellow matches)
+--colors=path:style:bold
+--colors=path:fg:magenta
+--colors=match:fg:black
+--colors=match:bg:yellow
+--colors=match:style:bold
+--colors=match:style:nobold
+
+# Line numbers: Bold and Yellow
+--colors=line:fg:yellow
+--colors=line:style:bold
