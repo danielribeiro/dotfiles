@@ -71,7 +71,7 @@ fi
 
 ###### General aliases ######
 alias em="/usr/local/bin/code"
-# alias em="/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl"
+# alias em="/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl". o7 sublime
 alias cdo='cd ~/downloads'
 alias cdd="cd $DEV_HOME"
 alias clr="unalias -a; reset && source ~/.bash_profile"
@@ -93,6 +93,12 @@ alias untar="tar xvf"
 alias untarz="tar xvfz"
 alias c="pbcopy"
 
+# tools for better xargs
+alias xa="xargs -0"
+alias xac="xargs -0 echo"
+alias xap="xargs -0 -p"
+
+# quick invokation of python serving local filesystem. For quick testing local htmls
 alias serve="python -m SimpleHTTPServer"
 alias serveit="python -m SimpleHTTPServer 8001"
 
