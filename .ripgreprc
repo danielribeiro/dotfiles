@@ -1,6 +1,8 @@
 # Colors: Match ag (Purple bold filenames, Black text on Yellow matches)
 --colors=path:style:bold
---colors=path:fg:magenta
+
+# 208 color is orange
+--colors=path:fg:208
 --colors=match:fg:black
 --colors=match:bg:yellow
 --colors=match:style:bold
@@ -9,3 +11,6 @@
 # Line numbers: Bold and Yellow
 --colors=line:fg:yellow
 --colors=line:style:bold
+
+# to see the 255 colors:
+# for i in {0..255}; do printf "\e[38;5;%dm%4d\e[0m" "$i" "$i"; done; echo

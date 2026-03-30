@@ -97,6 +97,10 @@ alias c="pbcopy"
 alias ag="rg"
 export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 
+# alias for notim (osascript notification wrapper on my ~/bin) with last command.
+# fc -nl -1 doesn't really work on a subshell, since I have shared histories
+alias notil='notim "$(fc -nl -1) at $(date "+%T")"'
+
 # tools for better xargs
 alias xa="xargs -0"
 alias xac="xargs -0 echo"
