@@ -67,7 +67,7 @@
 
 [core]
 	excludesfile = ~/.globalgitignore
-	editor = subl -n -w
+	editor = code --wait
 [diff]
 	tool = p4mergetool
         

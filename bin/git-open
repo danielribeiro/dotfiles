@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# Fetch the remote origin URL
+url=$(git config --get remote.origin.url 2>/dev/null)
+
+# Check if the URL is non-empty
+if [ -n "$url" ]; then
+    echo "Opening: $url"
+    open "$url"
+else
+    echo "Warning: No remote URL"
+    exit 1
+fi
